@@ -101,7 +101,7 @@ export const FAQ_ITEMS = [
   {
     question: 'Ile czasu tygodniowo muszę poświęcić?',
     answer:
-      'Jedna sesja live w tygodniu (60 min + Q&A). Plus krótkie materiały przed sesją (15-20 min) i zadanie domowe w Twoim tempie. Łącznie 2-3 godziny tygodniowo. Mniej niż jeden dobry film.',
+      'Dwie sesje live w tygodniu (60 min + Q&A każda). Plus krótkie materiały przed sesją i zadanie domowe w Twoim tempie. Łącznie 3-4 godziny tygodniowo. Mniej niż jeden sezon serialu.',
   },
   {
     question: 'Czy to kolejny webinar o ChatGPT?',

@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
-import { CircleAlert } from 'lucide-react'
+import { CircleAlert, ArrowRight } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
+import { Button } from '@/components/ui/Button'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
+import { CTA_URL } from '@/lib/constants'
 
 const problems = [
   'Siedzisz na spotkaniu. Ktoś mówi „wrzuciłem to w AI, wyszło w 5 minut". Wszyscy kiwają głowami. Ty też kiwasz — bo co masz zrobić?',
@@ -51,6 +53,13 @@ export function Problem() {
             Jeśli choć jeden punkt trafia — czytaj dalej.
             Nie musisz tak zostawać. I nie, nie jest za późno.
           </motion.p>
+
+          <motion.div variants={fadeInUp} className="text-center mt-8">
+            <Button href={CTA_URL} size="default">
+              Sprawdź gdzie jesteś
+              <ArrowRight size={18} className="ml-2" />
+            </Button>
+          </motion.div>
         </motion.div>
       </Container>
     </section>

@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
+import { Button } from '@/components/ui/Button'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
+import { CTA_URL } from '@/lib/constants'
 import { SEGMENTS } from '@/lib/constants'
 
 export function ForWho() {
@@ -113,6 +115,13 @@ export function ForWho() {
               )
             })}
           </div>
+
+          <motion.div variants={fadeInUp} className="text-center mt-10">
+            <Button href={CTA_URL} size="default">
+              Sprawdź swój poziom AI
+              <ArrowRight size={18} className="ml-2" />
+            </Button>
+          </motion.div>
         </motion.div>
       </Container>
     </section>

@@ -12,9 +12,11 @@ import { Framework } from '@/components/sections/Framework'
 import { FAQ } from '@/components/sections/FAQ'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { Quiz } from '@/components/sections/Quiz'
+import { Privacy } from '@/components/sections/Privacy'
 
 function App() {
   const [quizOpen, setQuizOpen] = useState(false)
+  const [privacyOpen, setPrivacyOpen] = useState(false)
 
   const openQuiz = useCallback(() => setQuizOpen(true), [])
 
@@ -53,8 +55,9 @@ function App() {
         <FAQ />
         <FinalCTA />
       </main>
-      <Footer />
+      <Footer onPrivacyClick={() => setPrivacyOpen(true)} />
       <Quiz isOpen={quizOpen} onClose={closeQuiz} />
+      <Privacy isOpen={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </>
   )
 }

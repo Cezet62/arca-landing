@@ -1,7 +1,11 @@
 import { Mail } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 
-export function Footer() {
+interface FooterProps {
+  onPrivacyClick: () => void
+}
+
+export function Footer({ onPrivacyClick }: FooterProps) {
   return (
     <footer className="bg-primary text-text-inverse py-10">
       <Container>
@@ -25,9 +29,12 @@ export function Footer() {
           </div>
           <div className="border-t border-text-inverse/10 pt-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-text-inverse/40">
             <span>&copy; {new Date().getFullYear()} Cezary Ziarkowski</span>
-            <a href="#" className="hover:text-text-inverse/60 transition-colors">
+            <button
+              onClick={onPrivacyClick}
+              className="hover:text-text-inverse/60 transition-colors cursor-pointer"
+            >
               Polityka prywatności
-            </a>
+            </button>
           </div>
         </div>
       </Container>
