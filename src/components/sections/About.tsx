@@ -34,7 +34,7 @@ export function About() {
               className="md:col-span-2 md:sticky md:top-28"
             >
               <img
-                src="/cz.png"
+                src="/cz.webp"
                 alt="Cezary Ziarkowski"
                 className="w-full aspect-[4/5] object-cover object-top rounded-2xl border border-border"
               />

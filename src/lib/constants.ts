@@ -138,5 +138,132 @@ export const FRAMEWORK_LEVELS = [
   { level: 'V', name: 'Mistrz', description: 'Kompletna wiedza', active: false },
 ]
 
-export const CTA_URL = '#test'
+export const CTA_URL = '#quiz'
 export const CTA_TEXT = 'Sprawdź swój poziom AI'
+
+export const FORM_ENDPOINT = 'https://formsubmit.co/ajax/ziarkowskicezary@gmail.com'
+
+export interface QuizQuestion {
+  id: number
+  scenario: string
+  answers: { text: string; points: number }[]
+}
+
+export const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    id: 1,
+    scenario:
+      'Musisz napisać ważnego maila do wymagającego klienta. Zależy Ci na tonie i precyzji. Co robisz?',
+    answers: [
+      { text: 'Piszę sam, jak zawsze — mail to mail', points: 0 },
+      { text: 'Piszę sam, ale przychodzi mi do głowy że AI mógłby pomóc. Nie wiem jak', points: 1 },
+      { text: 'Wrzucam do ChatGPT „napisz maila do klienta" i poprawiam co wyjdzie', points: 2 },
+      { text: 'Daję AI kontekst sytuacji, ton jaki chcę, cel maila — i wybieram najlepszą wersję', points: 3 },
+    ],
+  },
+  {
+    id: 2,
+    scenario:
+      'Na biurku ląduje 40-stronicowy raport. Musisz wyciągnąć z niego kluczowe wnioski do jutra rana. Co robisz?',
+    answers: [
+      { text: 'Siadam, czytam, robię notatki — nie ma drogi na skróty', points: 0 },
+      { text: 'Skanuję po nagłówkach, szukam podsumowania. Jeśli nie ma — czytam', points: 1 },
+      { text: 'Słyszałem że AI potrafi streszczać dokumenty, ale nie wiem jak mu to podać', points: 2 },
+      { text: 'Wrzucam do AI, proszę o streszczenie, kluczowe liczby i punkty wymagające mojej uwagi', points: 3 },
+    ],
+  },
+  {
+    id: 3,
+    scenario:
+      'Za 2 godziny masz spotkanie z potencjalnym partnerem biznesowym. Niewiele wiesz o jego firmie. Jak się przygotowujesz?',
+    answers: [
+      { text: 'Google, strona firmy, LinkedIn — klasyka', points: 0 },
+      { text: 'Przygotowuję się klasycznie, ale zastanawiam się czy AI mógłby mi jakoś pomóc — nie wiem tylko jak', points: 1 },
+      { text: 'Pomyślałbym o AI, ale co mu właściwie napisać? „Powiedz mi o firmie X"?', points: 2 },
+      { text: 'Proszę AI o analizę firmy, branży, potencjalnych punktów styku i listę pytań na spotkanie', points: 3 },
+    ],
+  },
+  {
+    id: 4,
+    scenario:
+      'Prosisz AI o pomoc z czymś ważnym. Wynik jest słaby — ogólnikowy, nie na temat, bezużyteczny. Twoja reakcja?',
+    answers: [
+      { text: '„Wiedziałem. To jeszcze nie działa wystarczająco dobrze."', points: 0 },
+      { text: 'Próbuję zapytać inaczej, ale po 2-3 próbach się poddaję', points: 1 },
+      { text: 'Wiem że to kwestia mojego pytania — dodaję kontekst, przykłady, precyzuję', points: 2 },
+      { text: 'Analizuję co poszło nie tak, przebudowuję prompt krok po kroku, testuję warianty', points: 3 },
+    ],
+  },
+  {
+    id: 5,
+    scenario:
+      'Co tydzień robisz to samo: zbierasz dane, wypełniasz tabelkę, piszesz krótki raport. Zajmuje to 2 godziny. Co myślisz?',
+    answers: [
+      { text: 'Tak jest od lat, działa, po co zmieniać', points: 0 },
+      { text: 'Irytuje mnie to, ale nie wiem jak to przyspieszyć', points: 1 },
+      { text: 'Zastanawiam się czy AI mógłby przejąć część tej roboty', points: 2 },
+      { text: 'Już to robię — AI generuje mi draft raportu, ja tylko weryfikuję i poprawiam', points: 3 },
+    ],
+  },
+  {
+    id: 6,
+    scenario:
+      'Musisz szybko zrozumieć temat, o którym niewiele wiesz — np. nowe przepisy, technologię, rynek. Jak się za to zabierasz?',
+    answers: [
+      { text: 'Google, artykuły, pytam znajomych', points: 0 },
+      { text: 'Klasycznie szukam w internecie, ale mam świadomość że AI mógłby to przyspieszyć — jeszcze tego nie próbowałem', points: 1 },
+      { text: 'Proszę AI żeby wytłumaczył mi temat prosto, potem dopytam o szczegóły', points: 2 },
+      { text: 'Buduję z AI sesję nauki: „jesteś ekspertem od X, wyjaśnij mi to jak komuś kto zna Y ale nie zna X"', points: 3 },
+    ],
+  },
+  {
+    id: 7,
+    scenario:
+      'AI przygotował Ci analizę, która wygląda świetnie. Ale coś Ci nie gra — Twoje doświadczenie podpowiada, że jeden wniosek jest nietrafiony. Co robisz?',
+    answers: [
+      { text: 'Ufam AI — pewnie wie lepiej ode mnie, to w końcu technologia', points: 0 },
+      { text: 'Czuję że coś nie tak, ale nie wiem jak to zweryfikować', points: 1 },
+      { text: 'Ufam swojemu doświadczeniu — sprawdzam ten konkretny punkt i poprawiam', points: 2 },
+      { text: 'Proszę AI o pokazanie rozumowania, konfrontuję ze swoją wiedzą i decyduję na podstawie obu', points: 3 },
+    ],
+  },
+]
+
+export interface QuizResult {
+  key: string
+  level: string
+  name: string
+  description: string
+  qualifies: boolean
+  ctaText: string
+}
+
+export const QUIZ_RESULTS: Record<string, QuizResult> = {
+  student: {
+    key: 'student',
+    level: 'I',
+    name: 'Student',
+    description:
+      'Jesteś na początku drogi z AI — i to jest dokładnie właściwe miejsce, żeby zacząć. Masz coś, czego żaden kurs AI nie nauczy: lata doświadczenia w swojej dziedzinie. Brakuje Ci jednego narzędzia, żeby to doświadczenie zwielokrotnić.',
+    qualifies: true,
+    ctaText: 'Zapisz się na darmowe spotkanie',
+  },
+  praktykant: {
+    key: 'praktykant',
+    level: 'II',
+    name: 'Praktykant',
+    description:
+      'Wiesz że AI istnieje i mogłoby Ci pomóc — to więcej niż większość ludzi. Ale między „wiem że mogę" a „robię to codziennie" jest przepaść. Kurs ARCA pomaga ją przeskoczyć.',
+    qualifies: true,
+    ctaText: 'Zapisz się na darmowe spotkanie',
+  },
+  czeladnik: {
+    key: 'czeladnik',
+    level: 'III',
+    name: 'Czeladnik',
+    description:
+      'Masz solidne podstawy — i mówię to szczerze: ten kurs byłby dla Ciebie za prosty. Nie chcę marnować Twojego czasu. Pracuję nad kursem zaawansowanym — automatyzacja, Claude Code, budowanie systemów.',
+    qualifies: false,
+    ctaText: 'Daj znać gdy kurs zaawansowany będzie gotowy',
+  },
+}
