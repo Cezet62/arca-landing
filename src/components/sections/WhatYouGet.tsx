@@ -20,7 +20,7 @@ const deliverables = [
     icon: Target,
     title: 'Twój projekt',
     description:
-      'Jeden konkretny efekt zrobiony od A do Z z AI. Dokument, plan, analiza — dopasowany do Twojej pracy. Dowód (dla siebie i innych) że umiesz.',
+      'Automatyzujesz tworzenie dokumentów, planów, analiz — wszystko dopasowane do Twojej pracy. Budujesz prostego agenta, który robi to za Ciebie. Dowód (dla siebie i innych) że umiesz.',
   },
 ]
 

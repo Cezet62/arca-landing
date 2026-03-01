@@ -25,14 +25,14 @@ export const SEGMENTS: Segment[] = [
     hook: 'Młodsi już to robią. Ty jeszcze nie.',
     pain: 'Na spotkaniach padają skróty, których nie znasz. Młodsi w firmie już używają AI — a Ty udajesz, że to nie Twój temat. I czujesz, że z każdym tygodniem tracisz kawałek autorytetu, który budowałeś latami.',
     effect: 'Wyobraź sobie: poniedziałek rano, spotkanie zarządu. Ktoś pyta o analizę rynku. Ty mówisz: „Zrobiłem ją z AI w 15 minut". Cisza. I to Ty pokazujesz zespołowi jak to działa. Nie nadganiasz — prowadzisz.',
-    socialProof: 'Ten kurs jest dla Ciebie, jeśli masz doświadczenie w zarządzaniu, ale AI to dla Ciebie wciąż czarny koń.',
+    socialProof: 'Ten kurs jest dla Ciebie, jeśli masz doświadczenie w zarządzaniu, ale AI to dla Ciebie wciąż wyzwanie.',
   },
   {
     id: 'entrepreneur',
     icon: Briefcase,
     name: 'Przedsiębiorca',
     hook: 'Nie masz czasu się uczyć, bo nie masz czasu.',
-    pain: 'Robisz wszystko sam. Maile, oferty, dokumenty, fakturki. Każdy dzień to gaszenie pożarów. Na „uczenie się nowych rzeczy" nie ma miejsca w kalendarzu. Paradoks? Owszem. Ale prawdziwy.',
+    pain: 'Robisz wszystko sam. Maile, oferty, dokumenty, faktury. Każdy dzień to gaszenie pożarów. Na „uczenie się nowych rzeczy" nie ma miejsca w kalendarzu. Paradoks? Owszem. Ale prawdziwy.',
     effect: 'Po kursie masz 3-5 zadań które AI robi za Ciebie. Oferty w 2 minuty zamiast pół godziny. Maile follow-up — automatycznie. Odzyskujesz godziny tygodniowo. I wreszcie masz czas na to, co naprawdę buduje firmę.',
     socialProof: 'Idealny kurs, jeśli prowadzisz firmę i masz wrażenie że doba jest za krótka. (Jest. Ale AI ją wydłuża.)',
   },
@@ -43,7 +43,7 @@ export const SEGMENTS: Segment[] = [
     hook: 'AI nie zastąpi Twojej wiedzy. Zwielokrotni ją.',
     pain: 'Czytasz, że AI pisze umowy, analizuje dane, stawia wstępne diagnozy. Nie wiesz, czy to zagrożenie czy szansa. I wolisz nie sprawdzać — bo co jeśli okaże się, że robi to lepiej? (Spoiler: nie robi. Ale robi to szybciej.)',
     effect: 'Twoje 20-30 lat wiedzy branżowej to SILNIK. AI to turbo. Analizujesz dokumenty w ułamku czasu, wyłapujesz rzeczy które przegapiłbyś po 30 stronach, i masz czas na to co naprawdę wymaga Twojej głowy.',
-    socialProof: 'Jeśli jesteś prawnikiem, księgową, lekarzem, inżynierem — Twoja ekspertyza + AI to kombinacja, której juniorzy nie mają.',
+    socialProof: 'Jeśli jesteś prawnikiem, księgową, lekarzem, inżynierem — Twoja ekspertyza + AI to kombinacja, której "juniorzy" nie mają.',
   },
   {
     id: 'sales',
@@ -70,7 +70,7 @@ export const COURSE_WEEKS = [
     week: 1,
     title: 'Podstawy — „jak rozmawiać z maszyną"',
     description:
-      'Uczysz się zadawać pytania tak, żeby dostawać dobre odpowiedzi. Koniec z „AI nie działa". Po tym tygodniu rozumiesz DLACZEGO jedni dostają genialne odpowiedzi, a inni bełkot. (Spoiler: to nie kwestia narzędzia.)',
+      'Uczysz się zadawać pytania tak, żeby dostawać dobre odpowiedzi. Koniec z „AI nie działa". Po tym tygodniu rozumiesz DLACZEGO jedni dostają genialne odpowiedzi, a inni bełkot. (Podpowiedź: to zależy od tego, jak pytasz — nie od tego, jakiego narzędzia używasz.)',
   },
   {
     week: 2,
@@ -88,7 +88,7 @@ export const COURSE_WEEKS = [
     week: 4,
     title: 'Projekt — dowód że umiesz',
     description:
-      'Tworzysz coś konkretnego od A do Z z pomocą AI. Dokument, plan, analiza — dopasowany do Twojej pracy. Pokazujesz efekt. Sobie i innym.',
+      'Automatyzujesz tworzenie dokumentów, planów, analiz — wszystko dopasowane do Twojej pracy. Budujesz prostego agenta, który robi to za Ciebie. Pokazujesz efekt. Sobie i innym.',
   },
 ]
 
@@ -126,16 +126,16 @@ export const FAQ_ITEMS = [
   {
     question: 'Czy to zadziała w mojej branży?',
     answer:
-      'AI to narzędzie uniwersalne — jak Excel. Ale w kursie pracujesz na SWOICH zadaniach z TWOJEJ branży. Nie na generycznych przykładach. Dlatego na kursie są prawnicy, księgowi, handlowcy, lekarze, inżynierowie. Każdy buduje narzędzia pod siebie.',
+      'AI to narzędzie uniwersalne — jak Excel. Ale na kursie pracujesz na SWOICH zadaniach z TWOJEJ branży. Nie na generycznych przykładach. Dlatego na kursie są prawnicy, księgowi, handlowcy, lekarze, inżynierowie. Każdy buduje narzędzia pod siebie.',
   },
 ]
 
 export const FRAMEWORK_LEVELS = [
   { level: 'I', name: 'Student', description: 'Pierwszy kontakt z AI', active: true },
   { level: 'II', name: 'Praktykant', description: 'Rozumiesz podstawy', active: true },
-  { level: 'III', name: 'Czeladnik', description: 'Samodzielny', active: false },
-  { level: 'IV', name: 'Ekspert', description: 'Głęboka wiedza', active: false },
-  { level: 'V', name: 'Mistrz', description: 'Kompletna wiedza', active: false },
+  { level: 'III', name: 'Czeladnik', description: 'Samodzielnie pracujesz z AI', active: true },
+  { level: 'IV', name: 'Ekspert', description: 'Automatyzacja i systemy', active: false },
+  { level: 'V', name: 'Mistrz', description: 'Tworzysz nowatorskie rozwiązania', active: false },
 ]
 
 export const CTA_URL = '#quiz'

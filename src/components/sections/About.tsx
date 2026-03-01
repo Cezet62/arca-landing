@@ -1,15 +1,33 @@
-import { motion } from 'framer-motion'
-import { Award, TrendingUp, Zap } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { X } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 
-const credentials = [
-  { icon: TrendingUp, label: '30 lat w biznesie i finansach' },
-  { icon: Award, label: 'Exit za 30 mln PLN' },
-  { icon: Zap, label: 'Uczył się AI od zera w 2025' },
+const certificates = [
+  {
+    badge: '/CAIBA-badge.png',
+    cert: '/CAIBA.png',
+    alt: 'Certified AI Business Associate',
+    inProgress: false,
+  },
+  {
+    badge: '/CAIWB-badge.png',
+    cert: '/CAIWB.png',
+    alt: 'Certified AI Web Builder',
+    inProgress: false,
+  },
+  {
+    badge: '/CAIBP-badge.png',
+    cert: null,
+    alt: 'Certified AI Business Professional — w trakcie certyfikacji',
+    inProgress: true,
+  },
 ]
 
 export function About() {
+  const [activeCert, setActiveCert] = useState<string | null>(null)
+
   return (
     <section id="prowadzacy" className="py-16 md:py-24 bg-surface">
       <Container>
@@ -24,7 +42,7 @@ export function About() {
             variants={fadeInUp}
             className="font-heading text-3xl md:text-4xl text-center mb-14"
           >
-            Kim jestem?
+            Prowadzący — Cezary Ziarkowski
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-start">
@@ -38,19 +56,29 @@ export function About() {
                 alt="Cezary Ziarkowski"
                 className="w-full aspect-[4/5] object-cover object-top rounded-2xl border border-border"
               />
-              <div className="flex flex-wrap gap-2 pt-4">
-                {credentials.map((cred) => {
-                  const Icon = cred.icon
-                  return (
-                    <div
-                      key={cred.label}
-                      className="inline-flex items-center gap-2 bg-bg rounded-lg px-3 py-1.5 text-xs font-medium text-text"
-                    >
-                      <Icon size={14} className="text-accent" />
-                      {cred.label}
-                    </div>
-                  )
-                })}
+              <div className="grid grid-cols-3 gap-2 pt-4">
+                {certificates.map((cert) => (
+                  <button
+                    key={cert.alt}
+                    onClick={() => cert.cert && setActiveCert(cert.cert)}
+                    className={`relative flex items-center justify-center p-2 rounded-xl bg-bg border border-border transition-all ${
+                      cert.cert
+                        ? 'cursor-pointer hover:border-accent hover:shadow-md'
+                        : 'cursor-default'
+                    } ${cert.inProgress ? 'opacity-50' : ''}`}
+                  >
+                    <img
+                      src={cert.badge}
+                      alt={cert.alt}
+                      className="w-full h-auto"
+                    />
+                    {cert.inProgress && (
+                      <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] bg-accent text-white px-1.5 py-0.5 rounded-full whitespace-nowrap">
+                        w trakcie
+                      </span>
+                    )}
+                  </button>
+                ))}
               </div>
             </motion.div>
 
@@ -72,19 +100,19 @@ export function About() {
               <p className="text-lg text-text leading-relaxed">
                 A rok temu? Siedziałem przed ekranem i googlowałem
                 „co to jest prompt". (Nie żartuję.) Ktoś na spotkaniu
-                rzucił „przegoń to przez ChatGPT", a ja pokiwałem
+                rzucił „sprawdź to w ChatGPT", a ja pokiwałem
                 głową — bo co miałem zrobić?
               </p>
 
               <p className="text-lg text-text leading-relaxed">
-                Potem ktoś mi pokazał. Nie guru z YouTube'a.
-                Nie webinar za 997 złotych. Normalny człowiek, który
-                powiedział: „spróbuj tak". I spróbowałem.
+                Potem ktoś mi pokazał. Nie teoria, nie slajdy.
+                Usiadł obok mnie i powiedział: „spróbuj tak".
+                I spróbowałem.
               </p>
 
               <p className="text-lg text-text leading-relaxed">
                 Szybko się okazało, że AI to nie magia — to narzędzie.
-                Jak Excel w latach 90. Kto się nauczył — wygrał.
+                Jak Excel w latach 90. Kto się nauczył, zdobył przewagę.
                 Kto nie — dalej liczył na kalkulatorze.
                 (Nic w tym złego, ale różnica w prędkości — gigantyczna.)
               </p>
@@ -98,7 +126,7 @@ export function About() {
 
               <p className="text-lg text-text leading-relaxed">
                 Nie jestem guru. Jestem{' '}
-                <span className="font-semibold text-primary">czeladnikiem</span> —
+                <a href="#framework" className="font-semibold text-accent underline underline-offset-4 hover:text-accent/80 transition-colors">czeladnikiem</a> —
                 krok przed Tobą na tej samej drodze. I właśnie dlatego
                 wiem czego potrzebujesz na starcie. Bo sam tam byłem rok temu.
               </p>
@@ -112,6 +140,41 @@ export function About() {
           </div>
         </motion.div>
       </Container>
+
+      {/* Certificate popup */}
+      <AnimatePresence>
+        {activeCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70"
+            onClick={() => setActiveCert(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative max-w-2xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveCert(null)}
+                className="absolute -top-3 -right-3 w-10 h-10 bg-surface rounded-full flex items-center justify-center shadow-lg border border-border cursor-pointer hover:bg-bg transition-colors z-10"
+              >
+                <X size={20} className="text-text" />
+              </button>
+              <img
+                src={activeCert}
+                alt="Certyfikat"
+                className="w-full rounded-xl shadow-2xl"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

@@ -6,11 +6,13 @@ import { Problem } from '@/components/sections/Problem'
 import { WhyNow } from '@/components/sections/WhyNow'
 import { ForWho } from '@/components/sections/ForWho'
 import { WhatYouGet } from '@/components/sections/WhatYouGet'
+import { BeforeAfter } from '@/components/sections/BeforeAfter'
 import { CourseTimeline } from '@/components/sections/CourseTimeline'
 import { About } from '@/components/sections/About'
 import { Framework } from '@/components/sections/Framework'
 import { FAQ } from '@/components/sections/FAQ'
 import { FinalCTA } from '@/components/sections/FinalCTA'
+import { PS } from '@/components/sections/PS'
 import { Quiz } from '@/components/sections/Quiz'
 import { Privacy } from '@/components/sections/Privacy'
 
@@ -49,11 +51,13 @@ function App() {
         <WhyNow />
         <ForWho />
         <WhatYouGet />
+        <BeforeAfter />
         <CourseTimeline />
         <About />
         <Framework />
         <FAQ />
         <FinalCTA />
+        <PS />
       </main>
       <Footer onPrivacyClick={() => setPrivacyOpen(true)} />
       <Quiz isOpen={quizOpen} onClose={closeQuiz} />

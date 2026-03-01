@@ -10,7 +10,7 @@ const problems = [
   'Próbowałeś ChatGPT raz czy dwa. Dostałeś jakiś tekst. I co dalej? Nie wiadomo.',
   'Masz 20, 30 lat doświadczenia. Ale w temacie AI czujesz się jak pierwszoklasista. I to uczucie jest do bani.',
   'Webinary, e-booki, „10 promptów które zmienią Twoje życie". Przerabiałeś. Nic się nie zmieniło.',
-  'Masz wrażenie że ten pociąg odjeżdża — i że zostajesz na peronie. Z każdym miesiącem coraz bardziej.',
+  'Masz wrażenie że ten pociąg odjeżdża, a ty zostajesz na peronie. Z każdym miesiącem coraz bardziej.',
 ]
 
 export function Problem() {

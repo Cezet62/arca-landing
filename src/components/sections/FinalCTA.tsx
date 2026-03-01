@@ -7,7 +7,7 @@ import { CTA_URL } from '@/lib/constants'
 
 export function FinalCTA() {
   return (
-    <section id="test" className="py-16 md:py-24 bg-bg">
+    <section id="test" className="pt-16 md:pt-24 pb-8 md:pb-12 bg-bg">
       <Container>
         <motion.div
           initial="hidden"
@@ -57,7 +57,14 @@ export function FinalCTA() {
             variants={fadeInUp}
             className="mt-5 text-sm text-text-light"
           >
-            Darmowy. 10 pytań. Wynik od razu.
+            Darmowy. 7 pytań. Wynik od razu.
+          </motion.p>
+
+          <motion.p
+            variants={fadeInUp}
+            className="mt-3 text-sm font-medium text-accent"
+          >
+            Pierwsza edycja: kwiecień 2026 · Tylko 20 miejsc
           </motion.p>
         </motion.div>
       </Container>

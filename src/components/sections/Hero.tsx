@@ -56,7 +56,14 @@ export function Hero() {
               variants={slideInLeft}
               className="mt-4 text-sm text-text-inverse/40"
             >
-              Darmowy test diagnostyczny. 10 pytań. Wynik od razu.
+              Darmowy test diagnostyczny. 7 pytań. Wynik od razu.
+            </motion.p>
+
+            <motion.p
+              variants={slideInLeft}
+              className="mt-3 text-sm font-medium text-accent/80"
+            >
+              Pierwsza edycja: kwiecień 2026 · Tylko 20 miejsc
             </motion.p>
           </motion.div>
 

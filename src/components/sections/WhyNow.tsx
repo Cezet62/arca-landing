@@ -12,7 +12,7 @@ const reasons = [
   {
     icon: Globe,
     title: 'Darmowe, po polsku, na telefonie',
-    text: 'Nie potrzebujesz płatnych narzędzi, angielskiego ani komputera za 10 tysięcy. ChatGPT, Claude, Gemini — działają za darmo, po polsku, w przeglądarce. Bariera wejścia? Praktycznie zero.',
+    text: 'Nie potrzebujesz płatnych narzędzi, angielskiego ani komputera za 10 tysięcy. ChatGPT, Claude, Gemini — działają za darmo, po polsku, w przeglądarce. Bariera wejścia? Tylko mentalna.',
   },
   {
     icon: TrendingUp,
@@ -42,7 +42,7 @@ export function WhyNow() {
             variants={fadeInUp}
             className="text-center text-text-light text-lg mb-14 max-w-2xl mx-auto"
           >
-            Bo okno się otwiera. I nie będzie otwarte wiecznie.
+            Bo okno się otwiera. Ale nie będzie otwarte wiecznie.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
