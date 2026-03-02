@@ -36,9 +36,9 @@ export function Framework() {
             variants={fadeInUp}
             className="text-center text-text-inverse/60 text-lg mb-14 max-w-2xl mx-auto"
           >
-            5 poziomów. Ten kurs prowadzi od Studenta do Czeladnika. Innymi słowy:
+            5 poziomów. Ten kurs prowadzi od Studenta i Praktykanta DO Czeladnika. Innymi słowy:
             od „nie wiem co to prompt" do „samodzielnie pracuję z AI na co dzień".
-            Nie musisz zostać ekspertem — wystarczy że ruszysz z miejsca.
+            Jeśli jesteś już czeladnikiem — zrób test, prawdopodobnie kurs będzie za podstawowy.
           </motion.p>
 
           <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-0">

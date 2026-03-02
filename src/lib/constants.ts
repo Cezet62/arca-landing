@@ -133,7 +133,7 @@ export const FAQ_ITEMS = [
 export const FRAMEWORK_LEVELS = [
   { level: 'I', name: 'Student', description: 'Pierwszy kontakt z AI', active: true },
   { level: 'II', name: 'Praktykant', description: 'Rozumiesz podstawy', active: true },
-  { level: 'III', name: 'Czeladnik', description: 'Samodzielnie pracujesz z AI', active: true },
+  { level: 'III', name: 'Czeladnik', description: 'Samodzielnie pracujesz z AI', active: false },
   { level: 'IV', name: 'Ekspert', description: 'Automatyzacja i systemy', active: false },
   { level: 'V', name: 'Mistrz', description: 'Tworzysz nowatorskie rozwiązania', active: false },
 ]
