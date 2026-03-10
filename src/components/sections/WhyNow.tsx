@@ -6,18 +6,21 @@ import { fadeInUp, staggerContainer } from '@/lib/animations'
 const reasons = [
   {
     icon: Zap,
-    title: 'AI w 2026 to nie to samo co AI w 2023',
-    text: 'Dwa lata temu ChatGPT odpowiadał jak przeciętny student. Dziś pisze lepiej niż większość ludzi, analizuje dokumenty, tworzy prezentacje i rozumie kontekst. Zmiana jest gigantyczna — i przyspiesza.',
+    title: '78% firm już używa AI',
+    stat: 'McKinsey, 2025',
+    text: 'W 2023 było to 55%. Dziś prawie 4 na 5 firm na świecie korzysta z AI w codziennej pracy. To już nie nowinka — to standard. Kto nie wchodzi, ten zostaje.',
   },
   {
     icon: Globe,
-    title: 'Darmowe, po polsku, na telefonie',
-    text: 'Nie potrzebujesz płatnych narzędzi, angielskiego ani komputera za 10 tysięcy. ChatGPT, Claude, Gemini — działają za darmo, po polsku, w przeglądarce. Bariera wejścia? Tylko mentalna.',
+    title: 'Osoby z AI zarabiają 56% więcej',
+    stat: 'PwC, 2025',
+    text: 'Pracownicy z umiejętnościami AI zarabiają ponad połowę więcej niż osoby na podobnych stanowiskach bez tych umiejętności. Rok temu ta różnica wynosiła 25%. Rośnie.',
   },
   {
     icon: TrendingUp,
-    title: 'Luka rośnie z każdym miesiącem',
-    text: 'Ci którzy już używają AI, przyspieszają. Ci którzy nie — zostają w tyle. To jak internet w 2000 roku. Kto wszedł pierwszy, zbudował przewagę. Kto czekał — nadganiał latami.',
+    title: 'Tylko 1 na 3 osoby przeszła szkolenie',
+    stat: 'World Economic Forum, 2026',
+    text: 'Większość ludzi jeszcze nie umie pracować z AI. To znaczy, że okno jest otwarte — kto wejdzie teraz, buduje przewagę. Kto poczeka rok — będzie nadganiał.',
   },
 ]
 
@@ -52,7 +55,7 @@ export function WhyNow() {
                 <motion.div
                   key={item.title}
                   variants={fadeInUp}
-                  className="bg-surface rounded-2xl p-7 md:p-8 border border-border"
+                  className="bg-surface rounded-2xl p-7 md:p-8 border border-border flex flex-col"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5">
                     <Icon size={24} className="text-accent" />
@@ -60,9 +63,14 @@ export function WhyNow() {
                   <h3 className="font-semibold text-lg mb-3 text-primary">
                     {item.title}
                   </h3>
-                  <p className="text-text-light leading-relaxed">
+                  <p className="text-text-light leading-relaxed flex-1">
                     {item.text}
                   </p>
+                  {item.stat && (
+                    <p className="text-xs text-text-light/50 mt-4 pt-3 border-t border-border">
+                      Źródło: {item.stat}
+                    </p>
+                  )}
                 </motion.div>
               )
             })}
@@ -72,9 +80,8 @@ export function WhyNow() {
             variants={fadeInUp}
             className="text-center mt-10 text-text text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            Innymi słowy: AI jest dostępne, proste i zmienia reguły gry.
-            Pytanie nie brzmi „czy się uczyć". Pytanie brzmi „czy teraz, czy za rok
-            — kiedy wszyscy dookoła już będą to umieć".
+            Dane mówią jasno: AI zmienia rynek, zmienia zarobki, zmienia zasady.
+            Większość ludzi jeszcze się nie nauczyła. To jest Twoje okno.
           </motion.p>
         </motion.div>
       </Container>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Timer, X, ZoomIn } from 'lucide-react'
+import { X, ZoomIn } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 

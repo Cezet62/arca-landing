@@ -13,6 +13,7 @@ import { AILevels } from '@/components/sections/AILevels'
 import { CourseTimeline } from '@/components/sections/CourseTimeline'
 import { About } from '@/components/sections/About'
 import { Framework } from '@/components/sections/Framework'
+import { Pricing } from '@/components/sections/Pricing'
 import { FAQ } from '@/components/sections/FAQ'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 import { PS } from '@/components/sections/PS'
@@ -61,6 +62,7 @@ function App() {
         <AILevels />
         <About />
         <Framework />
+        <Pricing />
         <FAQ />
         <FinalCTA />
         <PS />
