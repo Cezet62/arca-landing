@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ZoomIn } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
@@ -86,6 +86,16 @@ function TerminalMockup({ expanded = false }: { expanded?: boolean }) {
 export function AILevels() {
   const [activeLevel, setActiveLevel] = useState<number | null>(null)
 
+  // Block body scroll when lightbox is open
+  useEffect(() => {
+    if (activeLevel) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [activeLevel])
+
   return (
     <section className="py-16 md:py-24 bg-primary overflow-hidden">
       <Container>
@@ -153,10 +163,11 @@ export function AILevels() {
                     </div>
                   )}
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-sm rounded-full p-3">
-                      <ZoomIn size={24} className="text-white" />
+                  {/* Tap/hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-center pb-3 md:items-center md:pb-0">
+                    <div className="opacity-70 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1.5 md:p-3 flex items-center gap-1.5">
+                      <ZoomIn size={16} className="text-white md:w-6 md:h-6" />
+                      <span className="text-white text-xs md:hidden">Powiększ</span>
                     </div>
                   </div>
 
@@ -197,64 +208,73 @@ export function AILevels() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/85"
+            className="fixed inset-0 z-50 bg-black/90"
             onClick={() => setActiveLevel(null)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative max-w-5xl w-full"
-              onClick={(e) => e.stopPropagation()}
+            {/* Fixed close button — always visible, always tappable */}
+            <button
+              onClick={() => setActiveLevel(null)}
+              className="fixed top-4 right-4 z-[60] w-11 h-11 flex items-center justify-center rounded-full bg-white/15 hover:bg-white/25 active:bg-white/30 transition-colors cursor-pointer"
             >
-              {/* Close button */}
-              <button
-                onClick={() => setActiveLevel(null)}
-                className="absolute -top-12 right-0 md:top-0 md:-right-12 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
+              <X size={22} className="text-white" />
+            </button>
+
+            {/* Scrollable content area */}
+            <div className="absolute inset-0 overflow-y-auto overscroll-contain">
+              <div
+                className="min-h-full flex items-start md:items-center justify-center p-4 pt-16 pb-8 md:p-8"
+                onClick={(e) => {
+                  // Close only when clicking the padding area, not the content
+                  if (e.target === e.currentTarget) setActiveLevel(null)
+                }}
               >
-                <X size={20} className="text-white" />
-              </button>
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.95, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative max-w-5xl w-full"
+                >
+                  {(() => {
+                    const item = levels.find(l => l.level === activeLevel)!
+                    return (
+                      <>
+                        {/* Header */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm font-bold text-accent">
+                            {item.level}
+                          </span>
+                          <span className="font-semibold text-white text-lg">
+                            {item.label}
+                          </span>
+                          <span className="text-sm text-white/40">
+                            {item.pct} ludzi
+                          </span>
+                        </div>
 
-              {(() => {
-                const item = levels.find(l => l.level === activeLevel)!
-                return (
-                  <>
-                    {/* Header */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-sm font-bold text-accent">
-                        {item.level}
-                      </span>
-                      <span className="font-semibold text-white text-lg">
-                        {item.label}
-                      </span>
-                      <span className="text-sm text-white/40">
-                        {item.pct} ludzi
-                      </span>
-                    </div>
+                        {/* Full-size content */}
+                        <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                          {item.image ? (
+                            <img
+                              src={item.image}
+                              alt={item.alt}
+                              className="w-full h-auto block"
+                            />
+                          ) : (
+                            <TerminalMockup expanded />
+                          )}
+                        </div>
 
-                    {/* Full-size content */}
-                    <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl">
-                      {item.image ? (
-                        <img
-                          src={item.image}
-                          alt={item.alt}
-                          className="w-full h-auto block"
-                        />
-                      ) : (
-                        <TerminalMockup expanded />
-                      )}
-
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-white/70 leading-relaxed text-base mt-4 max-w-2xl">
-                      {item.description}
-                    </p>
-                  </>
-                )
-              })()}
-            </motion.div>
+                        {/* Description */}
+                        <p className="text-white/70 leading-relaxed text-base mt-4 max-w-2xl">
+                          {item.description}
+                        </p>
+                      </>
+                    )
+                  })()}
+                </motion.div>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
