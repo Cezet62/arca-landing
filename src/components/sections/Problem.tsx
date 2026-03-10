@@ -6,8 +6,8 @@ import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { CTA_URL } from '@/lib/constants'
 
 const problems = [
+  'Wpisałeś coś do ChatGPT kilka razy, dostałeś jakąś odpowiedź. Potem chciałeś to powtórzyć. Wpisałeś dokładnie to samo polecenie i dostałeś coś innego. Dlaczego? Nie wiadomo.',
   'Siedzisz na spotkaniu. Ktoś mówi „wrzuciłem to w AI, wyszło w 5 minut". Wszyscy kiwają głowami. Ty też kiwasz — bo co masz zrobić?',
-  'Próbowałeś ChatGPT raz czy dwa. Dostałeś jakiś tekst. I co dalej? Nie wiadomo.',
   'Masz 20, 30 lat doświadczenia. Ale w temacie AI czujesz się jak pierwszoklasista. I to uczucie jest do bani.',
   'Webinary, e-booki, „10 promptów które zmienią Twoje życie". Przerabiałeś. Nic się nie zmieniło.',
   'Masz wrażenie że ten pociąg odjeżdża, a ty zostajesz na peronie. Z każdym miesiącem coraz bardziej.',

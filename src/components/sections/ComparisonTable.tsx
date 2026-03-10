@@ -168,8 +168,8 @@ export function ComparisonTable() {
             variants={fadeInUp}
             className="text-center mt-8 text-text text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            Różnica to nie talent i&nbsp;nie technologia. To metoda.
-            Na kursie uczysz się dokładnie tej metody.
+            Różnica to nie talent i&nbsp;nie technologia. To sposób pracy.
+            Na kursie uczysz się dokładnie tego.
           </motion.p>
         </motion.div>
       </Container>
