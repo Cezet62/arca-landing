@@ -6,7 +6,7 @@ import { fadeInUp, staggerContainer } from '@/lib/animations'
 const reasons = [
   {
     icon: Zap,
-    title: 'AI w 2025 to nie to samo co AI w 2023',
+    title: 'AI w 2026 to nie to samo co AI w 2023',
     text: 'Dwa lata temu ChatGPT odpowiadał jak przeciętny student. Dziś pisze lepiej niż większość ludzi, analizuje dokumenty, tworzy prezentacje i rozumie kontekst. Zmiana jest gigantyczna — i przyspiesza.',
   },
   {
