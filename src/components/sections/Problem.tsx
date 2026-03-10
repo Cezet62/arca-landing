@@ -56,7 +56,7 @@ export function Problem() {
 
           <motion.div variants={fadeInUp} className="text-center mt-8">
             <Button href={CTA_URL} size="default">
-              Sprawdź gdzie jesteś
+              Sprawdź swój poziom AI
               <ArrowRight size={18} className="ml-2" />
             </Button>
           </motion.div>
