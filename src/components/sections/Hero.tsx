@@ -59,23 +59,22 @@ export function Hero() {
               Darmowy test. 7 pytań. 2 minuty.
             </motion.p>
 
-            <motion.ul
-              variants={slideInLeft}
-              className="mt-5 space-y-1.5 text-sm md:text-base text-text-inverse/60"
-            >
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-0.5">✓</span>
-                Pracujesz na swoich zadaniach — nie na generycznych przykładach
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-0.5">✓</span>
-                10 warsztatów live — bez żargonu i&nbsp;slajdów
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-accent mt-0.5">✓</span>
-                Kończysz z własnym asystentem AI — dopasowanym do Twojej pracy
-              </li>
-            </motion.ul>
+            <motion.div variants={slideInLeft} className="mt-5 flex justify-center md:justify-start">
+              <ul className="space-y-1.5 text-sm md:text-base text-text-inverse/60 text-left">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-0.5 shrink-0">✓</span>
+                  Pracujesz na swoich zadaniach — nie na generycznych przykładach
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-0.5 shrink-0">✓</span>
+                  10 warsztatów live — bez żargonu i&nbsp;slajdów
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-0.5 shrink-0">✓</span>
+                  Kończysz z własnym asystentem AI — dopasowanym do Twojej pracy
+                </li>
+              </ul>
+            </motion.div>
 
             <motion.p
               variants={slideInLeft}
