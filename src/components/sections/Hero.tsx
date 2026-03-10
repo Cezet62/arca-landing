@@ -3,7 +3,7 @@ import { ArrowRight, Clock, Users } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { fadeInUp, slideInLeft, staggerContainer } from '@/lib/animations'
-import { CTA_URL, SPOTS_LEFT, SPOTS_TOTAL } from '@/lib/constants'
+import { CTA_URL, SPOTS_LEFT } from '@/lib/constants'
 
 export function Hero() {
   return (
@@ -77,23 +77,12 @@ export function Hero() {
               </li>
             </motion.ul>
 
-            <motion.div
+            <motion.p
               variants={slideInLeft}
-              className="mt-4 max-w-xs md:mx-0 mx-auto"
+              className="mt-5 text-base md:text-lg font-medium text-text-inverse/70"
             >
-              <div className="flex justify-between text-sm mb-1.5">
-                <span className="text-text-inverse/60">
-                  Zostało <span className="text-accent font-semibold">{SPOTS_LEFT}</span> z {SPOTS_TOTAL} miejsc
-                </span>
-                <span className="text-text-inverse/40">kwiecień 2026</span>
-              </div>
-              <div className="h-2 bg-text-inverse/10 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-accent rounded-full transition-all duration-500"
-                  style={{ width: `${((SPOTS_TOTAL - SPOTS_LEFT) / SPOTS_TOTAL) * 100}%` }}
-                />
-              </div>
-            </motion.div>
+              Zostało <span className="text-accent font-bold">{SPOTS_LEFT}</span> miejsc · kwiecień 2026
+            </motion.p>
           </motion.div>
 
           {/* Zdjęcie — prawa strona */}
