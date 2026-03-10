@@ -1,14 +1,14 @@
 import { useState, useEffect, type FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ArrowRight, CheckCircle2, Sparkles } from 'lucide-react'
-import { QUIZ_QUESTIONS, QUIZ_RESULTS, FORM_ENDPOINT } from '@/lib/constants'
+import { X, ArrowRight, CheckCircle2, Sparkles, Mail } from 'lucide-react'
+import { QUIZ_QUESTIONS, QUIZ_RESULTS, GOOGLE_SHEET_URL } from '@/lib/constants'
 
 interface QuizProps {
   isOpen: boolean
   onClose: () => void
 }
 
-type Phase = 'questions' | 'result' | 'form' | 'success'
+type Phase = 'questions' | 'form' | 'result'
 
 function getLevel(score: number) {
   if (score <= 6) return 'student'
@@ -75,7 +75,7 @@ export function Quiz({ isOpen, onClose }: QuizProps) {
       if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
         setCurrentQuestion((prev) => prev + 1)
       } else {
-        setPhase('result')
+        setPhase('form')
       }
     }, 400)
   }
@@ -85,26 +85,25 @@ export function Quiz({ isOpen, onClose }: QuizProps) {
     setIsSubmitting(true)
 
     try {
-      await fetch(FORM_ENDPOINT, {
+      await fetch(GOOGLE_SHEET_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          'Content-Type': 'text/plain',
         },
         body: JSON.stringify({
-          name: name || '(nie podano)',
+          name,
           email,
           poziom: `${result.name} (${result.level})`,
           wynik: `${score}/21`,
-          kwalifikuje_sie: result.qualifies ? 'Tak' : 'Nie (czeladnik+)',
-          _subject: `ARCA Quiz: ${name || 'Ktoś'} — ${result.name} (${score}/21)`,
+          kwalifikuje_sie: result.qualifies ? 'Tak' : 'Nie',
         }),
       })
     } catch {
-      // Fallback — still show success
+      // Still show result even if submission fails
     }
 
-    setPhase('success')
+    setPhase('result')
     setIsSubmitting(false)
   }
 
@@ -221,6 +220,100 @@ export function Quiz({ isOpen, onClose }: QuizProps) {
                   </motion.div>
                 )}
 
+                {/* FORM PHASE — email before result */}
+                {phase === 'form' && (
+                  <motion.div
+                    key="form"
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="text-center mb-8">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                        className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6"
+                      >
+                        <Mail size={36} className="text-accent" />
+                      </motion.div>
+                      <h3 className="font-heading text-2xl md:text-3xl text-primary mb-2">
+                        Twój wynik jest gotowy!
+                      </h3>
+                      <p className="text-text-light">
+                        Podaj dane, żeby zobaczyć swój poziom AI
+                        i&nbsp;otrzymać szczegóły spotkania.
+                      </p>
+                    </div>
+
+                    <form
+                      onSubmit={handleSubmit}
+                      className="max-w-md mx-auto space-y-4"
+                    >
+                      <div>
+                        <label
+                          htmlFor="quiz-name"
+                          className="block text-sm font-medium text-text mb-1.5"
+                        >
+                          Imię
+                        </label>
+                        <input
+                          id="quiz-name"
+                          type="text"
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Twoje imię"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-border focus:border-accent focus:outline-none transition-colors text-text"
+                        />
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="quiz-email"
+                          className="block text-sm font-medium text-text mb-1.5"
+                        >
+                          Email
+                        </label>
+                        <input
+                          id="quiz-email"
+                          type="email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="twoj@email.pl"
+                          className="w-full px-4 py-3 rounded-xl border-2 border-border focus:border-accent focus:outline-none transition-colors text-text"
+                        />
+                      </div>
+
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          required
+                          checked={consent}
+                          onChange={(e) => setConsent(e.target.checked)}
+                          className="mt-1 w-4 h-4 accent-accent"
+                        />
+                        <span className="text-sm text-text-light leading-relaxed">
+                          Wyrażam zgodę na kontakt mailowy w sprawie kursu
+                          ARCA
+                        </span>
+                      </label>
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-200 hover:-translate-y-0.5 shadow-lg hover:shadow-xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? 'Wysyłam...' : 'Zobacz swój wynik'}
+                        {!isSubmitting && <ArrowRight size={20} />}
+                      </button>
+                    </form>
+                  </motion.div>
+                )}
+
                 {/* RESULT PHASE */}
                 {phase === 'result' && (
                   <motion.div
@@ -263,137 +356,14 @@ export function Quiz({ isOpen, onClose }: QuizProps) {
                       </div>
                     )}
 
-                    <p className="text-lg text-text leading-relaxed max-w-lg mx-auto mb-8">
+                    <p className="text-lg text-text leading-relaxed max-w-lg mx-auto mb-6">
                       {result.description}
                     </p>
 
-                    <button
-                      onClick={() => setPhase('form')}
-                      className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-200 hover:-translate-y-0.5 shadow-lg hover:shadow-xl cursor-pointer"
-                    >
-                      {result.ctaText}
-                      <ArrowRight size={20} />
-                    </button>
-                  </motion.div>
-                )}
-
-                {/* FORM PHASE */}
-                {phase === 'form' && (
-                  <motion.div
-                    key="form"
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h3 className="font-heading text-2xl md:text-3xl text-primary mb-2 text-center">
+                    <p className="text-sm text-text-light mb-8">
                       {result.qualifies
-                        ? 'Darmowe spotkanie onboardingowe'
-                        : 'Kurs zaawansowany — lista zainteresowanych'}
-                    </h3>
-                    <p className="text-text-light text-center mb-8">
-                      {result.qualifies
-                        ? 'Zostaw dane — szczegóły spotkania wyślę mailem.'
-                        : 'Zostaw maila — dam znać gdy kurs będzie gotowy.'}
-                    </p>
-
-                    <form
-                      onSubmit={handleSubmit}
-                      className="max-w-md mx-auto space-y-4"
-                    >
-                      {result.qualifies && (
-                        <div>
-                          <label
-                            htmlFor="quiz-name"
-                            className="block text-sm font-medium text-text mb-1.5"
-                          >
-                            Imię
-                          </label>
-                          <input
-                            id="quiz-name"
-                            type="text"
-                            required
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            placeholder="Twoje imię"
-                            className="w-full px-4 py-3 rounded-xl border-2 border-border focus:border-accent focus:outline-none transition-colors text-text"
-                          />
-                        </div>
-                      )}
-
-                      <div>
-                        <label
-                          htmlFor="quiz-email"
-                          className="block text-sm font-medium text-text mb-1.5"
-                        >
-                          Email
-                        </label>
-                        <input
-                          id="quiz-email"
-                          type="email"
-                          required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="twoj@email.pl"
-                          className="w-full px-4 py-3 rounded-xl border-2 border-border focus:border-accent focus:outline-none transition-colors text-text"
-                        />
-                      </div>
-
-                      {result.qualifies && (
-                        <label className="flex items-start gap-3 cursor-pointer">
-                          <input
-                            type="checkbox"
-                            required
-                            checked={consent}
-                            onChange={(e) => setConsent(e.target.checked)}
-                            className="mt-1 w-4 h-4 accent-accent"
-                          />
-                          <span className="text-sm text-text-light leading-relaxed">
-                            Wyrażam zgodę na kontakt mailowy w sprawie kursu
-                            ARCA
-                          </span>
-                        </label>
-                      )}
-
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-200 hover:-translate-y-0.5 shadow-lg hover:shadow-xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {isSubmitting ? 'Wysyłam...' : 'Wyślij'}
-                      </button>
-                    </form>
-                  </motion.div>
-                )}
-
-                {/* SUCCESS PHASE */}
-                {phase === 'success' && (
-                  <motion.div
-                    key="success"
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{ duration: 0.3 }}
-                    className="text-center py-8"
-                  >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 200 }}
-                      className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6"
-                    >
-                      <CheckCircle2 size={40} className="text-green-600" />
-                    </motion.div>
-
-                    <h3 className="font-heading text-2xl md:text-3xl text-primary mb-3">
-                      Gotowe!
-                    </h3>
-                    <p className="text-lg text-text-light mb-8 max-w-md mx-auto">
-                      {result.qualifies
-                        ? 'Szczegóły spotkania onboardingowego wyślę mailem. Do zobaczenia!'
-                        : 'Dam znać gdy kurs zaawansowany będzie gotowy. Dzięki!'}
+                        ? 'Szczegóły spotkania onboardingowego wyślę na podany adres email.'
+                        : 'Dam znać na podany adres email, gdy kurs zaawansowany będzie gotowy.'}
                     </p>
 
                     <button
