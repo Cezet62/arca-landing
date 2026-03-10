@@ -4,9 +4,12 @@ import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
 import { Problem } from '@/components/sections/Problem'
 import { WhyNow } from '@/components/sections/WhyNow'
+import { ComparisonTable } from '@/components/sections/ComparisonTable'
 import { ForWho } from '@/components/sections/ForWho'
+import { NotForWho } from '@/components/sections/NotForWho'
 import { WhatYouGet } from '@/components/sections/WhatYouGet'
 import { BeforeAfter } from '@/components/sections/BeforeAfter'
+import { AILevels } from '@/components/sections/AILevels'
 import { CourseTimeline } from '@/components/sections/CourseTimeline'
 import { About } from '@/components/sections/About'
 import { Framework } from '@/components/sections/Framework'
@@ -49,10 +52,13 @@ function App() {
         <Hero />
         <Problem />
         <WhyNow />
+        <ComparisonTable />
         <ForWho />
+        <NotForWho />
         <WhatYouGet />
         <BeforeAfter />
         <CourseTimeline />
+        <AILevels />
         <About />
         <Framework />
         <FAQ />
