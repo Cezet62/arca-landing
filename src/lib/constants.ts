@@ -140,6 +140,8 @@ export const FRAMEWORK_LEVELS = [
 
 export const CTA_URL = '#quiz'
 export const CTA_TEXT = 'Sprawdź swój poziom AI'
+export const SPOTS_TOTAL = 20
+export const SPOTS_LEFT = 17
 
 // Google Apps Script web app URL — zastąp TWOJ_SCRIPT_ID swoim ID po konfiguracji
 // Instrukcja: (1) Utwórz Google Sheet z nagłówkami: Data, Imię, Email, Poziom, Wynik, Kwalifikacja, Status

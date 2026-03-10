@@ -3,11 +3,11 @@ import { ArrowRight, Clock, Users } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { fadeInUp, slideInLeft, staggerContainer } from '@/lib/animations'
-import { CTA_URL } from '@/lib/constants'
+import { CTA_URL, SPOTS_LEFT, SPOTS_TOTAL } from '@/lib/constants'
 
 export function Hero() {
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-primary overflow-hidden">
+    <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-primary overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,158,11,0.08),transparent_50%)]" />
 
       <Container className="relative">
@@ -19,7 +19,7 @@ export function Hero() {
             variants={staggerContainer}
             className="text-center md:text-left"
           >
-            <motion.div variants={slideInLeft} className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-8">
+            <motion.div variants={slideInLeft} className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-5">
               <Clock size={16} />
               <span>4 tygodnie live</span>
               <span className="mx-1 text-accent/40">|</span>
@@ -29,7 +29,7 @@ export function Hero() {
 
             <motion.h1
               variants={slideInLeft}
-              className="font-heading text-4xl md:text-5xl lg:text-[3.4rem] text-text-inverse leading-tight mb-6"
+              className="font-heading text-4xl md:text-5xl lg:text-[3.4rem] text-text-inverse leading-tight mb-4"
             >
               AI da Ci tysiąc odpowiedzi w&nbsp;sekundę.{' '}
               <span className="text-accent">
@@ -39,10 +39,10 @@ export function Hero() {
 
             <motion.p
               variants={slideInLeft}
-              className="text-lg md:text-xl text-text-inverse/70 mb-10 max-w-xl leading-relaxed"
+              className="text-lg md:text-xl text-text-inverse/70 mb-6 max-w-xl leading-relaxed"
             >
               Naucz się zwiększać swoje możliwości z&nbsp;AI.
-              4&nbsp;tygodnie. Bez żargonu. Krok po kroku.
+              4&nbsp;tygodnie. Prostym językiem. Krok po kroku.
             </motion.p>
 
             <motion.div variants={slideInLeft} className="flex flex-col sm:flex-row items-center md:items-start gap-4">
@@ -54,17 +54,46 @@ export function Hero() {
 
             <motion.p
               variants={slideInLeft}
-              className="mt-4 text-sm text-text-inverse/40"
+              className="mt-3 text-sm text-text-inverse/40"
             >
-              Darmowy test diagnostyczny. 7 pytań. Wynik od razu.
+              Darmowy test. 7 pytań. 2 minuty.
             </motion.p>
 
-            <motion.p
+            <motion.ul
               variants={slideInLeft}
-              className="mt-3 text-sm font-medium text-accent/80"
+              className="mt-5 space-y-1.5 text-sm md:text-base text-text-inverse/60"
             >
-              Pierwsza edycja: kwiecień 2026 · Tylko 20 miejsc
-            </motion.p>
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-0.5">✓</span>
+                Pracujesz na swoich zadaniach — nie na generycznych przykładach
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-0.5">✓</span>
+                10 warsztatów live — bez żargonu i&nbsp;slajdów
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-accent mt-0.5">✓</span>
+                Kończysz z własnym asystentem AI — dopasowanym do Twojej pracy
+              </li>
+            </motion.ul>
+
+            <motion.div
+              variants={slideInLeft}
+              className="mt-4 max-w-xs md:mx-0 mx-auto"
+            >
+              <div className="flex justify-between text-sm mb-1.5">
+                <span className="text-text-inverse/60">
+                  Zostało <span className="text-accent font-semibold">{SPOTS_LEFT}</span> z {SPOTS_TOTAL} miejsc
+                </span>
+                <span className="text-text-inverse/40">kwiecień 2026</span>
+              </div>
+              <div className="h-2 bg-text-inverse/10 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-accent rounded-full transition-all duration-500"
+                  style={{ width: `${((SPOTS_TOTAL - SPOTS_LEFT) / SPOTS_TOTAL) * 100}%` }}
+                />
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Zdjęcie — prawa strona */}
