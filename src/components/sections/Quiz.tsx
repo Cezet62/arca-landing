@@ -11,8 +11,8 @@ interface QuizProps {
 type Phase = 'questions' | 'form' | 'result'
 
 function getLevel(score: number) {
-  if (score <= 6) return 'student'
-  if (score <= 13) return 'praktykant'
+  if (score <= 7) return 'student'
+  if (score <= 15) return 'praktykant'
   return 'czeladnik'
 }
 

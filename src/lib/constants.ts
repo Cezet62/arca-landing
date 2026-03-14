@@ -158,78 +158,78 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
     scenario:
-      'Musisz napisać ważnego maila do wymagającego klienta. Zależy Ci na tonie i precyzji. Co robisz?',
+      'Jak często używasz narzędzi AI (ChatGPT, Claude, Gemini)?',
     answers: [
-      { text: 'Piszę sam, jak zawsze — mail to mail', points: 0 },
-      { text: 'Piszę sam, ale przychodzi mi do głowy że AI mógłby pomóc. Nie wiem jak', points: 1 },
-      { text: 'Wrzucam do ChatGPT „napisz maila do klienta" i poprawiam co wyjdzie', points: 2 },
-      { text: 'Daję AI kontekst sytuacji, ton jaki chcę, cel maila — i wybieram najlepszą wersję', points: 3 },
+      { text: 'Nie używam; próbowałem kilka razy', points: 0 },
+      { text: 'Kilka razy w miesiącu, jak mi się przypomni', points: 1 },
+      { text: 'Kilka razy w tygodniu, mam swoje zastosowania', points: 2 },
+      { text: 'Codziennie — to część mojego sposobu pracy', points: 3 },
     ],
   },
   {
     id: 2,
     scenario:
-      'Na biurku ląduje 40-stronicowy raport. Musisz wyciągnąć z niego kluczowe wnioski do jutra rana. Co robisz?',
+      'Jak wyglądają Twoje typowe polecenia do AI?',
     answers: [
-      { text: 'Siadam, czytam, robię notatki — nie ma drogi na skróty', points: 0 },
-      { text: 'Skanuję po nagłówkach, szukam podsumowania. Jeśli nie ma — czytam', points: 1 },
-      { text: 'Słyszałem że AI potrafi streszczać dokumenty, ale nie wiem jak mu to podać', points: 2 },
-      { text: 'Wrzucam do AI, proszę o streszczenie, kluczowe liczby i punkty wymagające mojej uwagi', points: 3 },
+      { text: 'Krótkie pytania, jak w Google: „jak napisać mail do klienta"', points: 0 },
+      { text: 'Kilka zdań z opisem sytuacji', points: 1 },
+      { text: 'Podaję kontekst, cel, ton, format — strukturyzuję polecenie', points: 2 },
+      { text: 'Używam technik: role, przykłady, ograniczenia', points: 3 },
     ],
   },
   {
     id: 3,
     scenario:
-      'Za 2 godziny masz spotkanie z potencjalnym partnerem biznesowym. Niewiele wiesz o jego firmie. Jak się przygotowujesz?',
+      'Czy wgrywałeś plik (PDF, Word, zdjęcie) do AI, żeby go przeanalizować?',
     answers: [
-      { text: 'Google, strona firmy, LinkedIn — klasyka', points: 0 },
-      { text: 'Przygotowuję się klasycznie, ale zastanawiam się czy AI mógłby mi jakoś pomóc — nie wiem tylko jak', points: 1 },
-      { text: 'Pomyślałbym o AI, ale co mu właściwie napisać? „Powiedz mi o firmie X"?', points: 2 },
-      { text: 'Proszę AI o analizę firmy, branży, potencjalnych punktów styku i listę pytań na spotkanie', points: 3 },
+      { text: 'Nie, nie wiedziałem że to możliwe', points: 0 },
+      { text: 'Słyszałem o tym, ale nie próbowałem', points: 1 },
+      { text: 'Tak, zdarzyło mi się kilka razy', points: 2 },
+      { text: 'Tak, regularnie pracuję z AI na swoich dokumentach', points: 3 },
     ],
   },
   {
     id: 4,
     scenario:
-      'Prosisz AI o pomoc z czymś ważnym. Wynik jest słaby — ogólnikowy, nie na temat, bezużyteczny. Twoja reakcja?',
+      'Czy masz skonfigurowane „instrukcje użytkownika" lub „pamięć" w jakimkolwiek narzędziu AI?',
     answers: [
-      { text: '„Wiedziałem. To jeszcze nie działa wystarczająco dobrze."', points: 0 },
-      { text: 'Próbuję zapytać inaczej, ale po 2-3 próbach się poddaję', points: 1 },
-      { text: 'Wiem że to kwestia mojego pytania — dodaję kontekst, przykłady, precyzuję', points: 2 },
-      { text: 'Analizuję co poszło nie tak, przebudowuję prompt krok po kroku, testuję warianty', points: 3 },
+      { text: 'Nie wiem co to jest', points: 0 },
+      { text: 'Widziałem tę opcję, ale nie ustawiałem', points: 1 },
+      { text: 'Tak, mam ustawione podstawowe informacje o sobie', points: 2 },
+      { text: 'Tak, i aktywnie je aktualizuję pod różne zastosowania', points: 3 },
     ],
   },
   {
     id: 5,
     scenario:
-      'Co tydzień robisz to samo: zbierasz dane, wypełniasz tabelkę, piszesz krótki raport. Zajmuje to 2 godziny. Co myślisz?',
+      'Czy korzystałeś z „Projektów" w Claude, ChatGPT, lub podobnych funkcji dających AI stały kontekst Twojej pracy?',
     answers: [
-      { text: 'Tak jest od lat, działa, po co zmieniać', points: 0 },
-      { text: 'Irytuje mnie to, ale nie wiem jak to przyspieszyć', points: 1 },
-      { text: 'Zastanawiam się czy AI mógłby przejąć część tej roboty', points: 2 },
-      { text: 'Już to robię — AI generuje mi draft raportu, ja tylko weryfikuję i poprawiam', points: 3 },
+      { text: 'Nie wiem co to jest', points: 0 },
+      { text: 'Widziałem, ale nie korzystałem', points: 1 },
+      { text: 'Próbowałem stworzyć projekt, ale nie korzystam regularnie z takich opcji', points: 2 },
+      { text: 'Mam aktywne projekty, których używam regularnie', points: 3 },
     ],
   },
   {
     id: 6,
     scenario:
-      'Musisz szybko zrozumieć temat, o którym niewiele wiesz — np. nowe przepisy, technologię, rynek. Jak się za to zabierasz?',
+      'Z ilu narzędzi AI faktycznie korzystałeś (nie tylko słyszałeś o nich)?',
     answers: [
-      { text: 'Google, artykuły, pytam znajomych', points: 0 },
-      { text: 'Klasycznie szukam w internecie, ale mam świadomość że AI mógłby to przyspieszyć — jeszcze tego nie próbowałem', points: 1 },
-      { text: 'Proszę AI żeby wytłumaczył mi temat prosto, potem dopytam o szczegóły', points: 2 },
-      { text: 'Buduję z AI sesję nauki: „jesteś ekspertem od X, wyjaśnij mi to jak komuś kto zna Y ale nie zna X"', points: 3 },
+      { text: 'Żadnego; jednego (np. tylko ChatGPT)', points: 0 },
+      { text: 'Dwóch (np. ChatGPT + Claude lub Gemini)', points: 1 },
+      { text: 'Trzech-czterech, do różnych rzeczy', points: 2 },
+      { text: 'Pięciu lub więcej — dobieram narzędzie do zadania', points: 3 },
     ],
   },
   {
     id: 7,
     scenario:
-      'AI przygotował Ci analizę, która wygląda świetnie. Ale coś Ci nie gra — Twoje doświadczenie podpowiada, że jeden wniosek jest nietrafiony. Co robisz?',
+      'Czy kiedykolwiek użyłeś AI przez terminal, API lub narzędzie automatyzacji (np. Claude Code, Zapier, Make, n8n)?',
     answers: [
-      { text: 'Ufam AI — pewnie wie lepiej ode mnie, to w końcu technologia', points: 0 },
-      { text: 'Czuję że coś nie tak, ale nie wiem jak to zweryfikować', points: 1 },
-      { text: 'Ufam swojemu doświadczeniu — sprawdzam ten konkretny punkt i poprawiam', points: 2 },
-      { text: 'Proszę AI o pokazanie rozumowania, konfrontuję ze swoją wiedzą i decyduję na podstawie obu', points: 3 },
+      { text: 'Nie wiem co to jest', points: 0 },
+      { text: 'Słyszałem, ale nie próbowałem', points: 1 },
+      { text: 'Próbowałem kilka razy, ale to jest zbyt trudne', points: 2 },
+      { text: 'Używam regularnie — to część mojej pracy', points: 3 },
     ],
   },
 ]
