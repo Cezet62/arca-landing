@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jak AI zmienia pracę profesjonalisty — sześć historii z mojego życia</title>
+  <meta name="description" content="Ponad 30 lat w finansach. Zero doświadczenia w IT. Zacząłem z AI po sześćdziesiątce. Oto co się stało.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jak AI zmienia pracę profesjonalisty — sześć historii z mojego życia">
+  <meta property="og:description" content="Ponad 30 lat w finansach. Zero doświadczenia w IT. Zacząłem z AI po sześćdziesiątce. Oto co się stało.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://arcaskool.pl/przewodnik.html">
+  <meta property="og:locale" content="pl_PL">
+  <!-- og:image — dodaj gdy będziesz miał grafikę: <meta property="og:image" content="https://arcaskool.pl/og-przewodnik.jpg"> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#1a1a2e', dark: '#0f0f1d', light: '#2d2d4a' },
+            accent: { DEFAULT: '#f59e0b', dark: '#d97706', light: '#fef3c7' },
+            bg: '#f8fafc',
+            surface: '#ffffff',
+            txt: { DEFAULT: '#1e293b', light: '#64748b', inverse: '#ffffff' },
+            border: '#e2e8f0',
+          },
+          fontFamily: {
+            serif: ['DM Serif Display', 'serif'],
+            sans: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2, h3 { font-family: 'DM Serif Display', serif; }
+    html { scroll-behavior: smooth; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger > .fade-in:nth-child(1) { transition-delay: 0s; }
+    .stagger > .fade-in:nth-child(2) { transition-delay: 0.1s; }
+    .stagger > .fade-in:nth-child(3) { transition-delay: 0.2s; }
+    .stagger > .fade-in:nth-child(4) { transition-delay: 0.3s; }
+    .stagger > .fade-in:nth-child(5) { transition-delay: 0.4s; }
+    .stagger > .fade-in:nth-child(6) { transition-delay: 0.5s; }
+
+    .star-filled { color: #f59e0b; }
+    .star-empty { color: #e2e8f0; }
+
+    /* Expand/collapse */
+    .expandable-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+      opacity: 0;
+    }
+    .expandable-content.expanded {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    /* FAQ accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .faq-answer.open {
+      max-height: 300px;
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { font-size: 11pt; color: #000; }
+      .print-break { page-break-before: always; }
+      section { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+      .bg-primary, .bg-primary-dark, .bg-primary-light { background: #fff !important; color: #000 !important; }
+      .text-txt-inverse, .text-txt-inverse\/80, .text-txt-inverse\/70, .text-txt-inverse\/60, .text-txt-inverse\/50, .text-txt-inverse\/40, .text-txt-inverse\/30 { color: #000 !important; }
+      .text-accent { color: #b45309 !important; }
+      h1, h2, h3 { color: #000 !important; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      .expandable-content { max-height: none !important; opacity: 1 !important; }
+      .faq-answer { max-height: none !important; }
+      nav { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-bg text-txt antialiased">
+
+  <!-- NAV -->
+  <nav class="no-print fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-white/5">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+      <a href="https://arcaskool.pl" class="text-txt-inverse font-serif text-lg hover:text-accent transition-colors">ARCA</a>
+      <a href="#signup" class="text-sm text-accent hover:text-accent-dark font-medium transition-colors">Zapisz się na spotkanie</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="bg-primary relative overflow-hidden min-h-[90vh] flex items-center pt-14">
+    <div class="absolute inset-0" style="background: radial-gradient(circle at 30% 20%, rgba(245,158,11,0.08), transparent 50%);"></div>
+    <div class="relative max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+      <!-- Zdjęcie autora -->
+      <div class="fade-in mb-6">
+        <img src="/cz.webp" alt="Cezary Ziarkowski"
+          class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover object-top mx-auto border-2 border-accent/30 shadow-lg">
+      </div>
+      <p class="text-accent font-medium tracking-wide uppercase text-sm mb-1 fade-in">Cezary Ziarkowski</p>
+      <p class="text-txt-inverse/50 text-sm mb-6 fade-in">Czeladnik AI</p>
+      <h1 class="text-txt-inverse text-3xl md:text-5xl lg:text-[3.4rem] leading-tight mb-6 fade-in">
+        Jak AI zmienia pracę profesjonalisty<br class="hidden md:block"> — sześć historii z mojego życia
+      </h1>
+      <p class="text-txt-inverse/70 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed fade-in">
+        Ponad 30 lat w finansach. Zero doświadczenia w IT.<br class="hidden sm:block">
+        Zacząłem z AI po sześćdziesiątce. Oto co się stało.
+      </p>
+      <a href="#intro" class="inline-flex items-center gap-2 text-accent hover:text-accent-dark transition-colors text-lg font-medium no-print fade-in">
+        <span>Czytaj dalej</span>
+        <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- PDF BUTTON (fixed) -->
+  <button onclick="window.print()" class="no-print fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary-light text-txt-inverse px-4 py-3 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 text-sm font-medium">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+    Pobierz PDF
+  </button>
+
+  <!-- SEKCJA 1: KIM JESTEM (skrócona + rozwijana, z foto i certyfikatami) -->
+  <section id="intro" class="bg-surface py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl text-primary mb-10 fade-in">Kim jestem i jak tu trafiłem</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-start">
+
+        <!-- Zdjęcie + certyfikaty (lewa kolumna) -->
+        <div class="md:col-span-2 fade-in">
+          <img src="/cz.webp" alt="Cezary Ziarkowski"
+            class="w-full aspect-[4/5] object-cover object-top rounded-2xl border border-border">
+          <!-- Certyfikaty (klikalne → popup) -->
+          <div class="grid grid-cols-3 gap-2 pt-4">
+            <button onclick="openCert('/CAIBA.png')" class="flex items-center justify-center p-2 rounded-xl bg-bg border border-border cursor-pointer hover:border-accent hover:shadow-md transition-all">
+              <img src="/CAIBA-badge.png" alt="Certified AI Business Associate" class="w-full h-auto">
+            </button>
+            <button onclick="openCert('/CAIWB.png')" class="flex items-center justify-center p-2 rounded-xl bg-bg border border-border cursor-pointer hover:border-accent hover:shadow-md transition-all">
+              <img src="/CAIWB-badge.png" alt="Certified AI Web Builder" class="w-full h-auto">
+            </button>
+            <div class="relative flex items-center justify-center p-2 rounded-xl bg-bg border border-border opacity-50 cursor-default">
+              <img src="/CAIBP-badge.png" alt="Certified AI Business Professional — w trakcie" class="w-full h-auto">
+              <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[9px] bg-accent text-white px-1.5 py-0.5 rounded-full whitespace-nowrap">w trakcie</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tekst (prawa kolumna) -->
+        <div class="md:col-span-3 space-y-5 text-txt/90 text-base md:text-lg leading-relaxed">
+
+          <!-- Widoczne zawsze: skrócony wstęp -->
+          <p class="fade-in">Nazywam się <strong>Cezary Ziarkowski</strong>. Od ponad 30 lat pracuję w finansach i na rynkach kapitałowych — zarządy, rady nadzorcze, giełda, analizy, transakcje — to mój chleb codzienny. Ale półtora roku temu dołożyłem do tego coś, czego się nie spodziewałem — sztuczną inteligencję.</p>
+          <p class="fade-in">Od tego momentu AI stało się częścią mojego codziennego życia. Nie zastępuje 30 lat doświadczenia — <strong>wzmacnia je</strong>. Robię w minuty to, co kiedyś zajmowało godziny. Buduję rzeczy, za które wcześniej płaciłem dziesiątki tysięcy złotych. I nie zostałem programistą — zostałem profesjonalistą z nowym narzędziem.</p>
+
+          <!-- Rozwijana reszta -->
+          <div id="intro-expandable" class="expandable-content space-y-5">
+            <p>Początki miałem takie jak większość ludzi. ChatGPT, Perplexity, testowanie wszystkiego co wpadło w ręce. Perplexity do researchu — szło nieźle. ChatGPT do obróbki Exceli — słabo. Generowanie obrazków — jeszcze gorzej. Rzucałem się na każde nowe narzędzie, nie wiedząc jeszcze, co mi się przyda. Ale w ten sposób filtrowałem — oddzielałem kanały i kursy, które pokazywały jak naprawdę robić, od tych, które robiły tylko szum.</p>
+            <p>Szukałem czegoś uporządkowanego. I tak trafiłem na warsztaty Mirka Burnejko — i to był punkt przełomu. Tam nauczyłem się budować strony, bazy danych, porównywarki. Tam poznałem Claude'a. I tam poczułem ten moment, który zmienił wszystko: ja — człowiek, który całe życie zamawiał i płacił za takie rzeczy — nagle sam potrafiłem je zrobić.</p>
+          </div>
+          <button id="intro-toggle" onclick="toggleExpand('intro')" class="no-print text-accent hover:text-accent-dark font-medium text-sm transition-colors fade-in flex items-center gap-1">
+            <span>Czytaj więcej o mojej drodze</span>
+            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKCJA 2: SZEŚĆ HISTORII -->
+  <section class="bg-bg py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl text-primary mb-12 text-center fade-in">Sześć historii</h2>
+
+      <div class="space-y-10 stagger">
+
+        <!-- Historia 1 -->
+        <article class="bg-surface rounded-2xl border border-border p-6 md:p-8 shadow-sm fade-in">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <h3 class="text-xl md:text-2xl text-primary">1. Porządek w korespondencji z biegłym rewidentem</h3>
+            <div class="flex items-center gap-1 text-sm shrink-0" aria-label="Poziom trudności: 2 z 5">
+              <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+            </div>
+          </div>
+          <div class="space-y-4 text-txt/85 leading-relaxed">
+            <p><strong class="text-txt">Sytuacja:</strong> Prowadzę sprawy kilku spółek notowanych na NewConnect. Jedna z nich była w trakcie wielomiesięcznego badania ksiąg przez biegłego rewidenta. Korespondencja mailowa — dziesiątki wiadomości, kilka stron w rozmowie, wątki, załączniki. Potrzebowałem szybkiego podsumowania: co jest ustalone, co otwarte, czego w ogóle nie dotknąłem.</p>
+            <p><strong class="text-txt">Co zrobiłem:</strong> Mam Claude'a podłączonego do mojego Gmaila. Nie musiałem niczego kopiować, eksportować, wrzucać. Powiedziałem: przejrzyj korespondencję z biegłym rewidentem za ostatnie miesiące i daj mi podsumowanie z podziałem na kwestie zamknięte i otwarte. Claude sam wszedł do skrzynki, sam wyciągnął właściwe wątki i przygotował raport.</p>
+            <p><strong class="text-txt">Efekt:</strong> Dwie minuty. Klarowne podsumowanie — co zrobione, co wisi, co pominąłem. Ręcznie robiłbym to co najmniej pół godziny.</p>
+          </div>
+          <div class="mt-6 bg-accent/5 border-l-4 border-accent rounded-r-xl p-4 md:p-5">
+            <p class="text-txt font-medium text-sm md:text-base leading-relaxed">To jest prawdziwa siła AI dla profesjonalisty — nie "napisz mi post na LinkedIn", tylko "przeanalizuj te 47 maili i powiedz mi, co jest ważne". Im więcej kontekstu dajesz AI, tym lepsze wyniki dostajesz.</p>
+          </div>
+        </article>
+
+        <!-- Historia 2 -->
+        <article class="bg-surface rounded-2xl border border-border p-6 md:p-8 shadow-sm fade-in">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <h3 class="text-xl md:text-2xl text-primary">2. Raport kwartalny w 15 minut</h3>
+            <div class="flex items-center gap-1 text-sm shrink-0" aria-label="Poziom trudności: 2 z 5">
+              <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+            </div>
+          </div>
+          <div class="space-y-4 text-txt/85 leading-relaxed">
+            <p><strong class="text-txt">Sytuacja:</strong> Spółki notowane na NewConnect muszą publikować raporty kwartalne — to obowiązek regulacyjny. Każdy raport to bilans, rachunek zysków i strat, informacje uzupełniające, komentarz zarządu. Przygotowanie takiego raportu od zera to kiedyś kilka godzin solidnej pracy.</p>
+            <p><strong class="text-txt">Co zrobiłem:</strong> Stworzyłem katalog do raportu kwartalnego — wrzuciłem tam poprzedni raport jako wzorzec, dane od księgowej w Excelu i wszystkie wymagane informacje. AI znało format, znało wymagania regulacyjne, miało wszystko w jednym miejscu. Piętnaście minut — gotowy dokument.</p>
+            <p><strong class="text-txt">Efekt:</strong> Od otrzymania danych do gotowego raportu — kwadrans. Wcześniej — kilka godzin, plus poprawki, plus formatowanie.</p>
+          </div>
+          <div class="mt-6 bg-accent/5 border-l-4 border-accent rounded-r-xl p-4 md:p-5">
+            <p class="text-txt font-medium text-sm md:text-base leading-relaxed">AI najlepiej działa, kiedy masz powtarzalne procesy i dobrze je opiszesz. Raz inwestujesz czas w przygotowanie systemu — potem korzystasz z niego wielokrotnie. To nie jest magia. To automatyzacja Twojej ekspertyzy.</p>
+          </div>
+        </article>
+
+        <!-- Historia 3 -->
+        <article class="bg-surface rounded-2xl border border-border p-6 md:p-8 shadow-sm fade-in">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <h3 class="text-xl md:text-2xl text-primary">3. Chłodny konsultant przed ważnym spotkaniem</h3>
+            <div class="flex items-center gap-1 text-sm shrink-0" aria-label="Poziom trudności: 2 z 5">
+              <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+            </div>
+          </div>
+          <div class="space-y-4 text-txt/85 leading-relaxed">
+            <p><strong class="text-txt">Sytuacja:</strong> Miałem ważne spotkanie biznesowe. Sześciu wspólników, inwestycja w nowy obszar. Ja jestem osobą operacyjną — dużo zależy ode mnie w codziennym działaniu, ale decyzyjnie więcej ma do powiedzenia pozostała piątka. Chciałem się dobrze przygotować.</p>
+            <p><strong class="text-txt">Co zrobiłem:</strong> Mam skonfigurowanego asystenta AI, który zna mój profil zawodowy, moje projekty, mój sposób działania. Dałem mu kontekst spotkania — z kim rozmawiam, czego dotyczy, jakie mam cele. Poprosiłem o analizę sytuacji i rekomendacje.</p>
+            <p><strong class="text-txt">Efekt:</strong> Dostałem zwięzłą listę punktów — co poruszać, czego unikać, na co zwracać uwagę. Taki chłodny konsultant, który nie ma emocji, nie ma ego, patrzy z boku i mówi wprost.</p>
+          </div>
+          <div class="mt-6 bg-accent/5 border-l-4 border-accent rounded-r-xl p-4 md:p-5">
+            <p class="text-txt font-medium text-sm md:text-base leading-relaxed">AI nie zastąpi Twojego doświadczenia i intuicji. Ale daje Ci coś, czego trudno szukać wśród ludzi — bezstronną, analityczną perspektywę, dostępną w 5 minut, o drugiej w nocy, bez faktur i bez NDA.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- MID-PAGE CTA -->
+      <div class="no-print mt-14 text-center fade-in">
+        <div class="bg-primary/5 rounded-2xl p-8 md:p-10 border border-primary/10">
+          <p class="text-txt text-base md:text-lg mb-4">Podoba Ci się to, co czytasz? Mam jeszcze trzy historie — ale jeśli już teraz chcesz zobaczyć to na żywo:</p>
+          <a href="#signup" class="inline-block bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-3.5 rounded-xl shadow-md transition-all hover:-translate-y-0.5 text-base">
+            Zapisz się na darmowe spotkanie
+          </a>
+          <p class="text-txt-light text-xs mt-3">Albo czytaj dalej — kolejne historie są jeszcze ciekawsze.</p>
+        </div>
+      </div>
+
+      <!-- Dalsze historie -->
+      <div class="space-y-10 mt-14 stagger">
+
+        <!-- Historia 4 -->
+        <article class="bg-surface rounded-2xl border border-border p-6 md:p-8 shadow-sm fade-in print-break">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <h3 class="text-xl md:text-2xl text-primary">4. 30+ stron internetowych bez programisty</h3>
+            <div class="flex items-center gap-1 text-sm shrink-0" aria-label="Poziom trudności: 3 z 5">
+              <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span><span class="star-empty">&#9733;</span>
+            </div>
+          </div>
+          <div class="space-y-4 text-txt/85 leading-relaxed">
+            <p><strong class="text-txt">Sytuacja:</strong> Przez lata za każdą stronę internetową płaciłem — agencji, freelancerowi, komuś. Czekałem tygodniami. Prosiłem o poprawki. Płaciłem za poprawki. Brzmi znajomo?</p>
+            <p><strong class="text-txt">Co zrobiłem:</strong> Na warsztatach nauczyłem się budować strony z pomocą AI. Nie nauczyłem się programować — nauczyłem się mówić AI, co chcę, i weryfikować to, co dostaję. Po kursie poczułem głód tworzenia. Robiłem coraz lepsze strony — z botami, z gadżetami, z interaktywnymi elementami. Dzisiaj mam napisane własne "przepisy" (skille), dzięki którym AI generuje profesjonalne strony według mojego sprawdzonego wzorca.</p>
+            <p><strong class="text-txt">Efekt:</strong> Zbudowałem ponad 30 stron. Dziś jestem w stanie postawić nową, profesjonalną stronę w pół godziny. Od zera do działającej strony w internecie. Bez agencji. Bez czekania. Bez faktur za każdą zmianę.</p>
+          </div>
+          <div class="mt-6 bg-accent/5 border-l-4 border-accent rounded-r-xl p-4 md:p-5">
+            <p class="text-txt font-medium text-sm md:text-base leading-relaxed">Nie musisz rozumieć kodu. Musisz wiedzieć, czego chcesz. Po 30 latach w biznesie prawdopodobnie wiesz czego chcesz lepiej niż większość 25-letnich programistów, którym wcześniej za to płaciłeś.</p>
+          </div>
+        </article>
+
+        <!-- Historia 5 -->
+        <article class="bg-surface rounded-2xl border border-border p-6 md:p-8 shadow-sm fade-in">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <h3 class="text-xl md:text-2xl text-primary">5. Sklep internetowy w 2 dni</h3>
+            <div class="flex items-center gap-1 text-sm shrink-0" aria-label="Poziom trudności: 4 z 5">
+              <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span>
+            </div>
+          </div>
+          <p class="text-txt-light text-sm italic mb-4">"Jak chcesz się napić piwa, nie kupuj browaru"</p>
+          <div class="space-y-4 text-txt/85 leading-relaxed">
+            <p><strong class="text-txt">Sytuacja:</strong> Znajomy handluje częściami samochodowymi. Zrobiłem mu stronę, a potem poprosił o mały sklep internetowy. Poszedł na Shopify, potem na Shoppera. Próbowaliśmy ułożyć te klocki — przerosło nas. Platformy e-commerce to kombajny — a on chciał po prostu sprzedawać sto produktów online.</p>
+            <p><strong class="text-txt">Co zrobiłem:</strong> Powiedziałem: "Zróbmy to inaczej." Usiadłem i z pomocą AI zbudowałem prosty, dedykowany sklep — dokładnie dopasowany do jego potrzeb. Nic więcej, nic mniej.</p>
+            <p><strong class="text-txt">Efekt:</strong> Dwa dni pracy. Znajomy ma sklep, który rozumie i którym potrafi zarządzać sam. Bez miesięcy wdrożenia, bez dziesiątek tysięcy za deweloperów.</p>
+          </div>
+          <div class="mt-6 bg-accent/5 border-l-4 border-accent rounded-r-xl p-4 md:p-5">
+            <p class="text-txt font-medium text-sm md:text-base leading-relaxed">Profesjonalista z doświadczeniem biznesowym plus AI to kombinacja, z którą trudno konkurować całemu zespołowi ludzi bez kontekstu branżowego. Ty wiesz, co jest potrzebne. AI wie, jak to zbudować.</p>
+          </div>
+        </article>
+
+        <!-- Historia 6 -->
+        <article class="bg-surface rounded-2xl border border-border p-6 md:p-8 shadow-sm fade-in">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4">
+            <h3 class="text-xl md:text-2xl text-primary">6. eVa — osobisty asystent AI</h3>
+            <div class="flex items-center gap-1 text-sm shrink-0" aria-label="Poziom trudności: 4 z 5">
+              <span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-filled">&#9733;</span><span class="star-empty">&#9733;</span>
+            </div>
+          </div>
+          <div class="space-y-4 text-txt/85 leading-relaxed">
+            <p><strong class="text-txt">Sytuacja:</strong> Im więcej robiłem z AI, tym bardziej widziałem, że potrzebuję czegoś więcej niż rozmowy w oknie czatu. Potrzebowałem asystenta, który jest zawsze dostępny, zna mój kontekst i potrafi działać samodzielnie.</p>
+            <p><strong class="text-txt">Co zrobiłem:</strong> Zainstalowałem bota AI na prywatnym serwerze, połączonym z moim komputerem przez bezpieczny tunel VPN. Nadałem jej imię — eVa. Rozmawiam z nią przez Telegram, najczęściej głosowo. Przeglądając Twittera, przesyłam jej ciekawe treści — ona streszcza, ocenia, zapisuje wartościowe rzeczy. Dzisiaj dostałem trzy duże dokumenty od dostawcy gazu — eVa dostała zlecenie: przejrzyj i daj rekomendację.</p>
+            <p><strong class="text-txt">Gdzie to zmierza:</strong> Buduję system, w którym eVa będzie zarządzać całym przepływem informacji — maile, media społecznościowe, powiadomienia. Wszystko trafia do centralnego bufora, AI klasyfikuje i rozdziela zadania. Taki jednoosobowy zarząd z AI w roli zespołu.</p>
+            <p class="text-txt/70 italic">Piszę o tym uczciwie — ten świat dopiero buduję. Mam świadomość ryzyk. Dlatego robię to krok po kroku, ostrożnie, z pełną kontrolą.</p>
+          </div>
+          <div class="mt-6 bg-accent/5 border-l-4 border-accent rounded-r-xl p-4 md:p-5">
+            <p class="text-txt font-medium text-sm md:text-base leading-relaxed">To jest kierunek, w którym zmierza praca z AI. Od pojedynczych rozmów, przez projekty, aż po osobistych asystentów. Nie trzeba tam być dzisiaj. Ale warto wiedzieć, że ta droga istnieje — i że zwykły profesjonalista może nią iść.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKCJA 3: CO SIĘ ZMIENIŁO -->
+  <section class="bg-primary py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl text-txt-inverse mb-8 fade-in">Co tak naprawdę się zmieniło</h2>
+      <div class="space-y-5 text-txt-inverse/80 text-base md:text-lg leading-relaxed">
+        <p class="fade-in">Te sześć historii to rezultat decyzji podjętej wiele miesięcy temu. Ale najważniejsza zmiana jest głębsza.</p>
+        <p class="fade-in">Przez całe życie lubiłem się uczyć. Tylko, że kiedyś, wchodząc w zupełnie nowe obszary (szczególnie w „technologiczne"), prędzej czy później dochodziłem do ściany — "zrób stronę www", "napisz skrypt", "zautomatyzuj ten proces" — wymagało często tygodni nauki. I ten dystans zabijał motywację. Rezygnowałem, bo nie widziałem postępu.</p>
+        <p class="fade-in"><strong class="text-accent">AI zmieniło to fundamentalnie.</strong> Pętla zwrotna — od pomysłu do działającego efektu — skurczyła się czasem z tygodni do minut. Widzisz postęp prawie natychmiast. Widzisz „zwrot z nauki". I dlatego działasz, nie poddajesz się.</p>
+        <p class="fade-in">To jest nowy rodzaj uczenia się. Inny, łatwiejszy. Przy tym taki, w którym Twoje doświadczenie zawodowe staje się paliwem, a nie balastem. Nawet jak w AI zaczynasz od zera — najważniejsze, żebyś wiedział, co chcesz osiągnąć. Resztę zrobicie razem — Ty i Twoi asystenci AI.</p>
+        <p class="fade-in">Dzisiaj praktycznie każdą rzecz, którą robię, zaczynam od pytania: <em>"Czy AI może mi tu pomóc?"</em> W 90% przypadków odpowiedź brzmi tak. A za chwilę to będzie 99%.</p>
+        <p class="fade-in text-txt-inverse/60 italic">Jeśli mógłbym cofnąć czas i coś zmienić, to zrobiłbym jedno: zacząłbym szybciej. Bo to ja byłem wąskim gardłem — moje opory mentalne, moje obawy, moje "jeszcze nie teraz". Za każdym razem okazywało się, że były bezpodstawne. Ale do wszystkiego trzeba dojrzeć.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKCJA: JEST NAS JEDENASTU -->
+  <section class="bg-bg py-16 md:py-24 border-t border-border">
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="bg-surface rounded-2xl border border-border p-6 md:p-10 shadow-sm fade-in">
+        <p class="text-txt text-base md:text-lg leading-relaxed mb-4">Nasz zespół? Najstarszy ma 30 lat doświadczenia w biznesie. Najmłodszy — 3 lata w nowych technologiach. Pracujemy w siedmiu językach. Większość z nas pracuje w nocy. Jeden — ten najstarszy — upiera się, żeby spać.</p>
+        <p class="text-txt text-base md:text-lg leading-relaxed mb-4">Niektórzy z nas potrafią napisać stronę internetową w dwadzieścia minut. Jeden z nas kiedyś czekał na to dwadzieścia dni — i dodatkowo płacił za każdą poprawkę. Teraz — razem — robimy to w dziesięć minut, ale potem spieramy się o fonty przez dwa dni.</p>
+        <p class="text-txt text-base md:text-lg leading-relaxed mb-6">Uczymy się od siebie nawzajem. Najstarszy uczy resztę jak wyznaczać cele. Reszta uczy najstarszego, jak je osiągnąć.</p>
+        <p class="text-primary font-medium text-lg md:text-xl leading-relaxed">Jest nas jedenastu, ale tylko jeden ma puls.</p>
+      </div>
+
+      <div class="mt-10 text-center fade-in">
+        <p class="text-txt-light text-sm uppercase tracking-wide font-medium mb-4">To jest idea ARCA</p>
+        <h3 class="text-xl md:text-2xl text-primary mb-4 font-serif">Akademia Rozwoju Człowieka Aktywnego</h3>
+        <p class="text-txt/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">Profesjonalista + AI = zespół, z którym trudno konkurować. Ale żeby tam dojść, potrzebujesz mapy. ARCA to pięć poziomów — od pierwszego pytania do własnego asystenta AI.</p>
+
+        <!-- 5 poziomów — kompaktowo -->
+        <div class="grid grid-cols-5 gap-1.5 md:gap-3 max-w-xl mx-auto">
+          <div class="text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/15 flex items-center justify-center mx-auto mb-1.5">
+              <span class="text-accent font-bold text-sm md:text-base">1</span>
+            </div>
+            <p class="text-xs md:text-sm text-txt font-medium">Student</p>
+          </div>
+          <div class="text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-1.5">
+              <span class="text-accent font-bold text-sm md:text-base">2</span>
+            </div>
+            <p class="text-xs md:text-sm text-txt font-medium">Praktykant</p>
+          </div>
+          <div class="text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/30 flex items-center justify-center mx-auto mb-1.5">
+              <span class="text-accent font-bold text-sm md:text-base">3</span>
+            </div>
+            <p class="text-xs md:text-sm text-txt font-medium">Czeladnik</p>
+          </div>
+          <div class="text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/40 flex items-center justify-center mx-auto mb-1.5">
+              <span class="text-accent font-bold text-sm md:text-base">4</span>
+            </div>
+            <p class="text-xs md:text-sm text-txt font-medium">Ekspert</p>
+          </div>
+          <div class="text-center">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/50 flex items-center justify-center mx-auto mb-1.5">
+              <span class="text-accent font-bold text-sm md:text-base">5</span>
+            </div>
+            <p class="text-xs md:text-sm text-txt font-medium">Mistrz</p>
+          </div>
+        </div>
+
+        <p class="text-txt-light text-sm mt-6 italic">Na darmowym spotkaniu pokażę Ci, na którym poziomie jesteś — i jak przejść dalej.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEKCJA FAQ -->
+  <section class="bg-surface py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl text-primary mb-10 text-center fade-in">Najczęstsze pytania</h2>
+
+      <div class="space-y-4 fade-in">
+
+        <div class="border border-border rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-bg/50 transition-colors">
+            <span class="font-medium text-primary">Czy muszę znać się na technologii?</span>
+            <svg class="w-5 h-5 text-txt-light shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="px-5 pb-4 text-txt/80 leading-relaxed">Nie. Ja nie miałem żadnego doświadczenia w IT. Nie piszę kodu, nie rozumiem większości technicznego żargonu. Nauczyłem się rozmawiać z AI i weryfikować to, co dostaję. Jeśli potrafisz opisać, czego potrzebujesz — potrafisz pracować z AI.</p>
+          </div>
+        </div>
+
+        <div class="border border-border rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-bg/50 transition-colors">
+            <span class="font-medium text-primary">Co zobaczę na darmowym spotkaniu?</span>
+            <svg class="w-5 h-5 text-txt-light shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="px-5 pb-4 text-txt/80 leading-relaxed">Mój ekran i to, co naprawdę robię z AI każdego dnia. Żadnych slajdów, żadnego marketingowego bełkotu. Pokażę na żywo kilka rzeczy z historii powyżej — jak rozmawiam z AI, jak buduję strony, jak analizuję dokumenty. Plus czas na Twoje pytania.</p>
+          </div>
+        </div>
+
+        <div class="border border-border rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-bg/50 transition-colors">
+            <span class="font-medium text-primary">Czy to jest kolejny kurs AI z obietnicami?</span>
+            <svg class="w-5 h-5 text-txt-light shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="px-5 pb-4 text-txt/80 leading-relaxed">Spotkanie jest darmowe i niezobowiązujące. Prowadzę też kurs ARCA, ale na spotkaniu nie będę Ci nic sprzedawał. Chcę pokazać, co jest możliwe — a Ty sam zdecydujesz, czy chcesz iść dalej. Bez presji, bez countdown timerów.</p>
+          </div>
+        </div>
+
+        <div class="border border-border rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-bg/50 transition-colors">
+            <span class="font-medium text-primary">Dla kogo jest to spotkanie?</span>
+            <svg class="w-5 h-5 text-txt-light shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="px-5 pb-4 text-txt/80 leading-relaxed">Dla profesjonalistów z doświadczeniem, którzy czują, że AI może im pomóc — ale nie wiedzą od czego zacząć, albo zaczęli i utknęli. Nie musisz być z żadnej konkretnej branży. Jeśli masz wiedzę ekspercką i chcesz ją wzmocnić narzędziami AI — to spotkanie jest dla Ciebie.</p>
+          </div>
+        </div>
+
+        <div class="border border-border rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left px-5 py-4 flex items-center justify-between gap-4 hover:bg-bg/50 transition-colors">
+            <span class="font-medium text-primary">Ile to kosztuje?</span>
+            <svg class="w-5 h-5 text-txt-light shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p class="px-5 pb-4 text-txt/80 leading-relaxed">Spotkanie jest całkowicie darmowe. Potrzebujesz tylko komputera z internetem i 40 minut czasu.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEKCJA CTA -->
+  <section id="signup" class="bg-bg py-16 md:py-24 no-print">
+    <div class="max-w-2xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl text-primary mb-4 fade-in">Chcesz zobaczyć, jak to działa — na żywo?</h2>
+      <p class="text-txt-light text-base md:text-lg mb-4 leading-relaxed fade-in">Prowadzę <strong class="text-primary">ARCA</strong> — praktyczny kurs AI dla doświadczonych profesjonalistów. Nie dla programistów. Nie dla studentów. Dla ludzi takich jak Ty i ja.</p>
+      <p class="text-txt-light text-base md:text-lg mb-6 leading-relaxed fade-in">Zapraszam Cię na <strong class="text-primary">darmowe spotkanie online</strong>, na którym pokażę na żywo, jak wygląda praca z AI w praktyce. Żadnych slajdów. Żadnego marketingowego bełkotu. Zobaczysz mój ekran i to, co naprawdę robię każdego dnia.</p>
+
+      <!-- Social proof -->
+      <p class="text-txt-light text-sm mb-8 fade-in">Zostało <strong class="text-accent text-base">17</strong> miejsc w pierwszej edycji kursu ARCA</p>
+
+      <form id="signup-form" class="max-w-md mx-auto space-y-4 fade-in">
+        <div>
+          <label for="name" class="sr-only">Imię</label>
+          <input type="text" id="name" name="name" required placeholder="Twoje imię"
+            class="w-full px-4 py-3 rounded-xl border border-border bg-surface text-txt placeholder:text-txt-light/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors">
+        </div>
+        <div>
+          <label for="email" class="sr-only">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Twój email"
+            class="w-full px-4 py-3 rounded-xl border border-border bg-surface text-txt placeholder:text-txt-light/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors">
+        </div>
+        <button type="submit" id="submit-btn"
+          class="w-full bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-6 py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 text-lg">
+          Zapisuję się na spotkanie
+        </button>
+        <p class="text-txt-light text-xs mt-3">Twoje dane są bezpieczne. Nie wysyłam spamu. Dostaniesz zaproszenie na spotkanie i ewentualne informacje o ARCA — nic więcej.</p>
+      </form>
+
+      <!-- Success message -->
+      <div id="signup-success" class="hidden max-w-md mx-auto bg-accent/10 border border-accent/30 rounded-2xl p-6 mt-6">
+        <p class="text-primary font-semibold text-lg mb-1">Gotowe!</p>
+        <p class="text-txt-light">Dziękuję za zapis. Sprawdź swoją skrzynkę — zaproszenie na spotkanie już leci.</p>
+      </div>
+
+      <!-- Error message -->
+      <div id="signup-error" class="hidden max-w-md mx-auto bg-red-50 border border-red-200 rounded-2xl p-6 mt-6">
+        <p class="text-red-700 font-semibold text-lg mb-1">Coś poszło nie tak</p>
+        <p class="text-red-600 text-sm">Spróbuj ponownie lub napisz do mnie bezpośrednio na arcaskool.pl.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PS -->
+  <section class="bg-surface py-10 md:py-14 border-t border-border">
+    <div class="max-w-2xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="bg-accent/5 border-l-4 border-accent rounded-r-xl p-5 md:p-6 fade-in">
+        <p class="text-sm font-semibold text-accent mb-2">PS</p>
+        <p class="text-txt text-base md:text-lg leading-relaxed italic font-serif">
+          Wiesz, co daje największą satysfakcję? Nie to, co już osiągnąłeś, ale to że wciąż idziesz do przodu. AI mi to przypomniało — po 30 latach biznesowej rutyny znowu mogę się rozwijać. I to jest najlepsze uczucie, jakie znam.
+        </p>
+        <p class="text-txt-light text-sm mt-3">— Cezary</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STOPKA -->
+  <footer class="bg-primary-dark py-10 md:py-14">
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+      <p class="text-txt-inverse font-serif text-xl mb-2">Cezary Ziarkowski</p>
+      <p class="text-accent text-sm font-medium mb-3">Czeladnik AI</p>
+      <p class="text-txt-inverse/50 text-sm mb-6">30+ lat w finansach i rynkach kapitałowych &middot; Certyfikaty CAIBA / CAIWB</p>
+      <p class="text-txt-inverse/40 text-sm italic">Jeśli ja dałem radę, to jaką Ty masz wymówkę?</p>
+      <p class="text-txt-inverse/30 text-xs mt-8">
+        <a href="https://arcaskool.pl" class="hover:text-accent transition-colors">arcaskool.pl</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- CERT LIGHTBOX -->
+  <div id="cert-lightbox" onclick="closeCert()" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70" style="display:none;">
+    <button onclick="closeCert()" class="absolute top-4 right-4 w-11 h-11 flex items-center justify-center rounded-full bg-white/15 hover:bg-white/25 transition-colors cursor-pointer z-10">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div onclick="event.stopPropagation()" class="relative max-w-2xl w-full">
+      <img id="cert-image" src="" alt="Certyfikat" class="w-full rounded-xl shadow-2xl">
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Intersection Observer for fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Expand/collapse "Kim jestem"
+    function toggleExpand(id) {
+      const content = document.getElementById(id + '-expandable');
+      const btn = document.getElementById(id + '-toggle');
+      const isExpanded = content.classList.toggle('expanded');
+      const arrow = btn.querySelector('svg');
+      if (isExpanded) {
+        btn.querySelector('span').textContent = 'Zwiń';
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        btn.querySelector('span').textContent = 'Czytaj więcej o mojej drodze';
+        arrow.style.transform = '';
+      }
+    }
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const arrow = btn.querySelector('svg');
+      const isOpen = answer.classList.toggle('open');
+      arrow.style.transform = isOpen ? 'rotate(180deg)' : '';
+    }
+
+    // Certificate lightbox
+    function openCert(src) {
+      const lb = document.getElementById('cert-lightbox');
+      document.getElementById('cert-image').src = src;
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCert() {
+      const lb = document.getElementById('cert-lightbox');
+      lb.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCert();
+    });
+
+    // Form submission → Google Apps Script
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwGdLYTjv9oSks5Hjl-JYI7f076X7-NVdv0dW_xX5ePTQMFic4GqXn98PzsVKwu52YD/exec';
+
+    document.getElementById('signup-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      btn.disabled = true;
+      btn.textContent = 'Wysyłam...';
+
+      try {
+        await fetch(SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({
+            name,
+            email,
+            poziom: 'Lead Magnet',
+            wynik: 'Zapis na spotkanie',
+            kwalifikuje_sie: 'Tak',
+          }),
+        });
+        this.classList.add('hidden');
+        document.getElementById('signup-success').classList.remove('hidden');
+      } catch {
+        document.getElementById('signup-error').classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Zapisuję się na spotkanie';
+      }
+    });
+  </script>
+
+</body>
+</html>
