@@ -104,9 +104,10 @@ export function Privacy({ isOpen, onClose }: PrivacyProps) {
                   </h3>
                   <p>
                     Dane nie są udostępniane podmiotom trzecim w celach
-                    marketingowych. Formularze obsługiwane są przez serwis
-                    FormSubmit.co, który przetwarza dane wyłącznie w celu
-                    dostarczenia wiadomości.
+                    marketingowych. Dane z formularzy przechowywane są
+                    w arkuszu Google Sheets zabezpieczonym dostępem
+                    ograniczonym do administratora. Na podany adres email
+                    wysyłane jest potwierdzenie zapisu.
                   </p>
                 </section>
 
@@ -122,7 +123,7 @@ export function Privacy({ isOpen, onClose }: PrivacyProps) {
               </div>
 
               <div className="mt-8 pt-6 border-t border-border text-xs text-text-light">
-                Ostatnia aktualizacja: luty 2026
+                Ostatnia aktualizacja: marzec 2026
               </div>
             </div>
           </motion.div>

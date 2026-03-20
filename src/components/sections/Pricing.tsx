@@ -18,6 +18,7 @@ const included = [
 export function Pricing() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [consent, setConsent] = useState(false)
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -125,6 +126,18 @@ export function Pricing() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-text-inverse placeholder:text-text-inverse/30 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
                 />
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="mt-1 w-4 h-4 accent-accent"
+                  />
+                  <span className="text-sm text-text-inverse/60 leading-relaxed text-left">
+                    Wyrażam zgodę na kontakt mailowy w&nbsp;sprawie kursu ARCA
+                  </span>
+                </label>
                 <button
                   type="submit"
                   disabled={status === 'sending'}

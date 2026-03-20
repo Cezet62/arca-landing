@@ -480,11 +480,18 @@
           <input type="email" id="email" name="email" required placeholder="Twój email"
             class="w-full px-4 py-3 rounded-xl border border-border bg-surface text-txt placeholder:text-txt-light/50 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors">
         </div>
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" id="consent" required class="mt-1 w-4 h-4 accent-[#D4A853]">
+          <span class="text-txt-light text-sm leading-relaxed text-left">
+            Wyrażam zgodę na kontakt mailowy w&nbsp;sprawie kursu ARCA.
+            <button type="button" onclick="document.getElementById('privacy-policy').classList.toggle('hidden')" class="underline underline-offset-2 hover:text-txt transition-colors">Polityka prywatności</button>
+          </span>
+        </label>
         <button type="submit" id="submit-btn"
           class="w-full bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-6 py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 text-lg">
           Zapisuję się na spotkanie
         </button>
-        <p class="text-txt-light text-xs mt-3">Twoje dane są bezpieczne. Nie wysyłam spamu. Dostaniesz zaproszenie na spotkanie i ewentualne informacje o ARCA — nic więcej.</p>
+        <p class="text-txt-light text-xs mt-3">Twoje dane są bezpieczne. Nie wysyłam spamu. Dostaniesz zaproszenie na spotkanie i&nbsp;ewentualne informacje o&nbsp;ARCA — nic więcej.</p>
       </form>
 
       <!-- Success message -->
@@ -514,6 +521,44 @@
     </div>
   </section>
 
+  <!-- POLITYKA PRYWATNOŚCI (inline, domyślnie ukryta) -->
+  <div id="privacy-policy" class="hidden bg-surface border-t border-border">
+    <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 py-10">
+      <h2 class="font-serif text-2xl text-primary mb-6">Polityka prywatności</h2>
+      <div class="space-y-5 text-txt-light text-sm leading-relaxed">
+        <section>
+          <h3 class="font-semibold text-txt mb-1">1. Administrator danych</h3>
+          <p>Administratorem danych osobowych jest Cezary Ziarkowski, prowadzący projekt ARCA. Kontakt: ziarkowskicezary@gmail.com</p>
+        </section>
+        <section>
+          <h3 class="font-semibold text-txt mb-1">2. Jakie dane zbieramy</h3>
+          <p>Zbieramy wyłącznie dane podane dobrowolnie przez formularz na stronie: imię oraz adres email. Dane te służą wyłącznie do kontaktu w&nbsp;sprawie kursu ARCA.</p>
+        </section>
+        <section>
+          <h3 class="font-semibold text-txt mb-1">3. Cel przetwarzania</h3>
+          <p>Dane przetwarzane są w&nbsp;celu przesłania informacji o&nbsp;kursie ARCA, w&nbsp;tym szczegółów spotkania, na podstawie wyrażonej zgody (art.&nbsp;6 ust.&nbsp;1 lit.&nbsp;a RODO).</p>
+        </section>
+        <section>
+          <h3 class="font-semibold text-txt mb-1">4. Okres przechowywania</h3>
+          <p>Dane przechowywane są do momentu wycofania zgody lub zakończenia kontaktu w&nbsp;sprawie kursu.</p>
+        </section>
+        <section>
+          <h3 class="font-semibold text-txt mb-1">5. Twoje prawa</h3>
+          <p>Masz prawo do dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania oraz wycofania zgody w&nbsp;dowolnym momencie. Kontakt: ziarkowskicezary@gmail.com</p>
+        </section>
+        <section>
+          <h3 class="font-semibold text-txt mb-1">6. Udostępnianie danych</h3>
+          <p>Dane nie są udostępniane podmiotom trzecim w&nbsp;celach marketingowych. Dane z&nbsp;formularzy przechowywane są w&nbsp;arkuszu Google Sheets zabezpieczonym dostępem ograniczonym do administratora. Na podany adres email wysyłane jest potwierdzenie zapisu.</p>
+        </section>
+        <section>
+          <h3 class="font-semibold text-txt mb-1">7. Pliki cookies</h3>
+          <p>Strona nie wykorzystuje plików cookies do śledzenia użytkowników ani celów reklamowych.</p>
+        </section>
+      </div>
+      <p class="text-txt-light/50 text-xs mt-8">Ostatnia aktualizacja: marzec 2026</p>
+    </div>
+  </div>
+
   <!-- STOPKA -->
   <footer class="bg-primary-dark py-10 md:py-14">
     <div class="max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
@@ -523,6 +568,8 @@
       <p class="text-txt-inverse/40 text-sm italic">Jeśli ja dałem radę, to jaką Ty masz wymówkę?</p>
       <p class="text-txt-inverse/30 text-xs mt-8">
         <a href="https://arcaskool.pl" class="hover:text-accent transition-colors">arcaskool.pl</a>
+        &nbsp;&middot;&nbsp;
+        <button onclick="document.getElementById('privacy-policy').classList.remove('hidden'); document.getElementById('privacy-policy').scrollIntoView({behavior:'smooth'})" class="hover:text-accent transition-colors underline underline-offset-2">Polityka prywatności</button>
       </p>
     </div>
   </footer>
@@ -587,7 +634,7 @@
     });
 
     // Form submission → Google Apps Script
-    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwGdLYTjv9oSks5Hjl-JYI7f076X7-NVdv0dW_xX5ePTQMFic4GqXn98PzsVKwu52YD/exec';
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzVls1xTaaFWjmpe8qI8a1z5dsq15aXn5ur2d9vuU4d_Uqn8AKtjjaOBbGjZdDJpuCk/exec';
 
     document.getElementById('signup-form').addEventListener('submit', async function(e) {
       e.preventDefault();

@@ -146,7 +146,7 @@ export const SPOTS_LEFT = 17
 // Google Apps Script web app URL — zastąp TWOJ_SCRIPT_ID swoim ID po konfiguracji
 // Instrukcja: (1) Utwórz Google Sheet z nagłówkami: Data, Imię, Email, Poziom, Wynik, Kwalifikacja, Status
 // (2) Extensions → Apps Script → wklej kod doPost z README → Deploy → Web app → Anyone → skopiuj URL
-export const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwGdLYTjv9oSks5Hjl-JYI7f076X7-NVdv0dW_xX5ePTQMFic4GqXn98PzsVKwu52YD/exec'
+export const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzVls1xTaaFWjmpe8qI8a1z5dsq15aXn5ur2d9vuU4d_Uqn8AKtjjaOBbGjZdDJpuCk/exec'
 
 export interface QuizQuestion {
   id: number
