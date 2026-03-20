@@ -64,7 +64,7 @@ export function FinalCTA() {
             variants={fadeInUp}
             className="mt-3 text-sm font-medium text-accent"
           >
-            Pierwsza edycja: kwiecień 2026 · Tylko 20 miejsc
+            Pierwsza edycja: kwiecień 2026
           </motion.p>
         </motion.div>
       </Container>

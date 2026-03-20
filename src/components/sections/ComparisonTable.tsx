@@ -164,13 +164,17 @@ export function ComparisonTable() {
             </p>
           </motion.div>
 
-          <motion.p
+          <motion.div
             variants={fadeInUp}
-            className="text-center mt-8 text-text text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-center mt-8 max-w-2xl mx-auto"
           >
-            Różnica to nie talent i&nbsp;nie technologia. To sposób pracy.
-            Na kursie uczysz się dokładnie tego.
-          </motion.p>
+            <p className="text-text text-lg leading-relaxed">
+              Różnica to nie talent i&nbsp;nie technologia. To sposób pracy.
+            </p>
+            <p className="text-accent font-semibold text-lg mt-2">
+              Na kursie uczysz się dokładnie tego.
+            </p>
+          </motion.div>
         </motion.div>
       </Container>
     </section>

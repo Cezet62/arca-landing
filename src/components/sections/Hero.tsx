@@ -31,7 +31,7 @@ export function Hero() {
               variants={slideInLeft}
               className="font-heading text-4xl md:text-5xl lg:text-[3.4rem] text-text-inverse leading-tight mb-4"
             >
-              AI da Ci tysiąc odpowiedzi w&nbsp;sekundę.{' '}
+              AI da Ci tysiąc odpowiedzi w&nbsp;minutę.{' '}
               <span className="text-accent">
                 Tylko Ty wiesz, która jest właściwa dla&nbsp;Ciebie.
               </span>

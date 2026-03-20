@@ -190,9 +190,9 @@ export function AILevels() {
               <p className="text-text-inverse text-lg leading-relaxed">
                 Na kursie prowadzę Cię od poziomu 1 do poziomu 2.
                 <br className="hidden md:block" />
-                Poziom 3? Pokażę Ci go na ostatnich zajęciach —{' '}
+                Najambitniejsi wejdą ze mną na poziom 3 —{' '}
                 <span className="text-accent font-medium">
-                  żebyś wiedział, co dalej.
+                  i&nbsp;sami zobaczą, czy chcą iść dalej.
                 </span>
               </p>
             </div>
