@@ -94,7 +94,7 @@ export function About() {
               </p>
 
               <p className="text-lg text-text leading-relaxed">
-                Półtora roku temu dołożyłem do tego coś, czego się nie spodziewałem —
+                Półtora roku temu dołożyłem do tego coś, o&nbsp;co bym się wcześniej nie podejrzewał —
                 sztuczną inteligencję. Ktoś mi pokazał. Nie teoria, nie slajdy.
                 Usiadł obok mnie i&nbsp;powiedział: „spróbuj tak".
                 I&nbsp;spróbowałem.
