@@ -88,52 +88,42 @@ export function About() {
               className="md:col-span-3 space-y-5"
             >
               <p className="text-xl md:text-2xl leading-relaxed text-text">
-                Mam <span className="font-semibold text-primary">63 lata</span>.
-                30 lat w finansach i biznesie. Zarządzam spółkami giełdowymi.
-                Jedną z firm biotech, którą zbudowaliśmy od zera, sprzedaliśmy za 30 mln zł.
+                Od ponad <span className="font-semibold text-primary">30 lat</span> pracuję
+                w&nbsp;finansach i&nbsp;na rynkach kapitałowych — zarządy, rady nadzorcze,
+                giełda, analizy, transakcje — to mój chleb codzienny.
               </p>
 
               <p className="text-lg text-text leading-relaxed">
-                Innymi słowy — nie jestem przypadkowym gościem z internetu.
-              </p>
-
-              <p className="text-lg text-text leading-relaxed">
-                A rok temu? Siedziałem przed ekranem i googlowałem
-                „co to jest prompt". (Nie żartuję.) Ktoś na spotkaniu
-                rzucił „sprawdź to w ChatGPT", a ja pokiwałem
-                głową — bo co miałem zrobić?
-              </p>
-
-              <p className="text-lg text-text leading-relaxed">
-                Potem ktoś mi pokazał. Nie teoria, nie slajdy.
-                Usiadł obok mnie i powiedział: „spróbuj tak".
-                I spróbowałem.
+                Półtora roku temu dołożyłem do tego coś, czego się nie spodziewałem —
+                sztuczną inteligencję. Ktoś mi pokazał. Nie teoria, nie slajdy.
+                Usiadł obok mnie i&nbsp;powiedział: „spróbuj tak".
+                I&nbsp;spróbowałem.
               </p>
 
               <p className="text-lg text-text leading-relaxed">
                 Szybko się okazało, że AI to nie magia — to narzędzie.
-                Jak Excel w latach 90. Kto się nauczył, zdobył przewagę.
+                Jak Excel w&nbsp;latach 90. Kto się nauczył, zdobył przewagę.
                 Kto nie — dalej liczył na kalkulatorze.
-                (Nic w tym złego, ale różnica w prędkości — gigantyczna.)
+                (Nic w&nbsp;tym złego, ale różnica w&nbsp;prędkości — gigantyczna.)
               </p>
 
               <p className="text-lg text-text leading-relaxed">
-                Dziś buduję firmy z AI. Automatyzuję procesy. Piszę
-                kod — ja, człowiek który nigdy nie był programistą.
-                Nie dlatego że jestem geniuszem technologicznym.
-                Dlatego że ktoś mi pokazał od czego zacząć.
+                Od tego momentu AI stało się częścią mojego codziennego życia.
+                Nie zastępuje 30 lat doświadczenia — <strong>wzmacnia je</strong>.
+                Robię w&nbsp;minuty to, co kiedyś zajmowało godziny.
+                I&nbsp;nie zostałem programistą — zostałem profesjonalistą z&nbsp;nowym narzędziem.
               </p>
 
               <p className="text-lg text-text leading-relaxed">
                 Nie jestem guru. Jestem{' '}
                 <a href="#framework" className="font-semibold text-accent underline underline-offset-4 hover:text-accent/80 transition-colors">czeladnikiem</a> —
-                krok przed Tobą na tej samej drodze. I właśnie dlatego
-                wiem czego potrzebujesz na starcie. Bo sam tam byłem rok temu.
+                krok przed Tobą na tej samej drodze. I&nbsp;właśnie dlatego
+                wiem czego potrzebujesz na starcie. Bo sam tam byłem półtora roku temu.
               </p>
 
               <div className="bg-accent/5 rounded-xl p-5 border-l-4 border-accent">
                 <p className="text-lg font-heading text-primary italic">
-                  "Jeśli ja jako 63-latek to robię — jaką Ty masz wymówkę?"
+                  "Jeśli ja dałem radę — jaką Ty masz wymówkę?"
                 </p>
               </div>
             </motion.div>
