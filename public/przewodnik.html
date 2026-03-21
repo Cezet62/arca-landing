@@ -106,7 +106,7 @@
   <!-- NAV -->
   <nav class="no-print fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-white/5">
     <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-      <a href="https://arcaskool.pl" class="text-txt-inverse font-serif text-lg hover:text-accent transition-colors">ARCA</a>
+      <a href="/przewodnik.html" class="text-accent font-serif text-lg hover:text-accent-dark transition-colors">ARCA</a>
       <a href="#signup" class="text-sm text-accent hover:text-accent-dark font-medium transition-colors">Zapisz się na spotkanie</a>
     </div>
   </nav>
@@ -136,11 +136,6 @@
     </div>
   </section>
 
-  <!-- PDF BUTTON (fixed) -->
-  <button onclick="window.print()" class="no-print fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary-light text-txt-inverse px-4 py-3 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 flex items-center gap-2 text-sm font-medium">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-    Pobierz PDF
-  </button>
 
   <!-- SEKCJA 1: KIM JESTEM (skrócona + rozwijana, z foto i certyfikatami) -->
   <section id="intro" class="bg-surface py-16 md:py-24">
@@ -314,7 +309,7 @@
             </div>
           </div>
           <div class="space-y-4 text-txt/85 leading-relaxed">
-            <p><strong class="text-txt">Sytuacja:</strong> Im więcej pracowałem z&nbsp;AI, tym bardziej widziałem, że potrzebuję czegoś więcej niż rozmowy w&nbsp;oknie czatu. Potrzebowałem asystenta, który jest zawsze dostępny, zna mój kontekst i&nbsp;potrafi działać samodzielnie (również wtedy „gdy ja śpię").</p>
+            <p><strong class="text-txt">Sytuacja:</strong> Im dłużej pracowałem z&nbsp;AI, tym bardziej widziałem, że potrzebuję czegoś więcej niż rozmowy w&nbsp;oknie czatu. Potrzebowałem asystenta, który jest zawsze dostępny, zna mój kontekst i&nbsp;potrafi działać samodzielnie (również wtedy „gdy ja śpię").</p>
             <p><strong class="text-txt">Co zrobiłem:</strong> Zbudowałem takiego asystenta AI. Nadałem mu imię — eVa (ciekawe skąd takie „imię"?). Komunikujemy się przez Telegram, najczęściej głosowo. Gdzie mi pomaga?</p>
             <ul class="space-y-3 text-txt/85">
               <li>Przeglądam często wybrane konta na TwiXterze. Kiedy znajdę coś ciekawego, przesyłam jej link — ona czyta cały wpis, streszcza go, a&nbsp;jeśli uznamy, że warto, zapisuje do wskazanych folderów.</li>
@@ -472,7 +467,7 @@
       <p class="text-txt-light text-base md:text-lg mb-6 leading-relaxed fade-in">Zapraszam Cię na <strong class="text-primary">darmowe spotkanie online</strong>, na którym pokażę na żywo, jak wygląda praca z AI w praktyce. Żadnych slajdów. Żadnego marketingowego bełkotu. Zobaczysz mój ekran i to, co naprawdę robię każdego dnia.</p>
 
       <!-- Social proof -->
-      <p class="text-txt-light text-sm mb-8 fade-in">Zostało <strong class="text-accent text-base">17</strong> miejsc w pierwszej edycji kursu ARCA</p>
+      <p class="text-txt-light text-sm mb-8 fade-in">Pierwsza edycja kursu ARCA &middot; kwiecień 2026</p>
 
       <form id="signup-form" class="max-w-md mx-auto space-y-4 fade-in">
         <div>
@@ -489,7 +484,7 @@
           <input type="checkbox" id="consent" required class="mt-1 w-4 h-4 accent-[#D4A853]">
           <span class="text-txt-light text-sm leading-relaxed text-left">
             Wyrażam zgodę na kontakt mailowy w&nbsp;sprawie kursu ARCA.
-            <button type="button" onclick="document.getElementById('privacy-policy').classList.toggle('hidden')" class="underline underline-offset-2 hover:text-txt transition-colors">Polityka prywatności</button>
+            <button type="button" onclick="document.getElementById('privacy-policy').classList.remove('hidden'); document.getElementById('privacy-policy').scrollIntoView({behavior:'smooth'})" class="underline underline-offset-2 hover:text-txt transition-colors">Polityka prywatności</button>
           </span>
         </label>
         <button type="submit" id="submit-btn"
