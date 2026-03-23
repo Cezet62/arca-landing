@@ -103,21 +103,41 @@ export function Privacy({ isOpen, onClose }: PrivacyProps) {
                     6. Udostępnianie danych
                   </h3>
                   <p>
-                    Dane nie są udostępniane podmiotom trzecim w celach
-                    marketingowych. Dane z formularzy przechowywane są
-                    w arkuszu Google Sheets zabezpieczonym dostępem
-                    ograniczonym do administratora. Na podany adres email
-                    wysyłane jest potwierdzenie zapisu.
+                    Dane z formularzy przechowywane są w arkuszu Google
+                    Sheets zabezpieczonym dostępem ograniczonym do
+                    administratora. Na podany adres email wysyłane jest
+                    potwierdzenie zapisu.
+                  </p>
+                  <p className="mt-2">
+                    Na stronie zainstalowany jest piksel Meta (Facebook),
+                    który zbiera anonimowe dane o wizytach w celach
+                    statystycznych i reklamowych. Dane te są przekazywane
+                    do Meta Platforms Ireland Ltd. zgodnie z ich{' '}
+                    <a
+                      href="https://www.facebook.com/privacy/policy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-text"
+                    >
+                      polityką prywatności
+                    </a>
+                    . Piksel nie zbiera danych osobowych podanych
+                    w formularzach na tej stronie.
                   </p>
                 </section>
 
                 <section>
                   <h3 className="font-semibold text-text mb-2">
-                    7. Pliki cookies
+                    7. Pliki cookies i technologie śledzące
                   </h3>
                   <p>
-                    Strona nie wykorzystuje plików cookies do śledzenia
-                    użytkowników ani celów reklamowych.
+                    Strona wykorzystuje piksel Meta (Facebook Pixel),
+                    który może zapisywać pliki cookies w przeglądarce
+                    użytkownika. Piksel służy do mierzenia skuteczności
+                    reklam oraz tworzenia grup odbiorców na platformie
+                    Meta. Zebrane dane są anonimowe i nie pozwalają na
+                    identyfikację konkretnego użytkownika przez
+                    administratora strony.
                   </p>
                 </section>
               </div>
