@@ -57,14 +57,14 @@ export function FinalCTA() {
             variants={fadeInUp}
             className="mt-5 text-sm text-text-light"
           >
-            Darmowy. 7 pytań. Wynik od razu.
+            Darmowy quiz. 7 pytań. Wynik od razu.
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
             className="mt-3 text-sm font-medium text-accent"
           >
-            Pierwsza edycja: kwiecień 2026
+            Pierwsza edycja kursu: kwiecień 2026
           </motion.p>
         </motion.div>
       </Container>
