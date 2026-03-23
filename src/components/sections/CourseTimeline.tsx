@@ -23,7 +23,7 @@ export function CourseTimeline() {
             variants={fadeInUp}
             className="text-center text-text-light text-lg mb-14 max-w-2xl mx-auto"
           >
-            2 sesje live tygodniowo (60 min + Q&A każda). Każdy tydzień buduje na poprzednim.
+            2 sesje live tygodniowo (90 min każda). Każdy tydzień buduje na poprzednim.
             Zaczynasz od „co to jest prompt?", kończysz z własnym projektem zrobionym w AI.
           </motion.p>
 

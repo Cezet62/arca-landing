@@ -23,7 +23,7 @@ export const SEGMENTS: Segment[] = [
     icon: Building2,
     name: 'Menedżer / Prezes',
     hook: 'Młodsi już to robią. Ty jeszcze nie.',
-    pain: 'Na spotkaniach padają skróty, których nie znasz. Młodsi w firmie już używają AI — a Ty udajesz, że to nie Twój temat. I czujesz, że z każdym tygodniem tracisz kawałek autorytetu, który budowałeś latami.',
+    pain: 'Na spotkaniach padają skróty, których nie znasz. Inni w firmie już używają AI — a Ty udajesz, że to nie Twój temat. I czujesz, że z każdym tygodniem tracisz kawałek autorytetu, który budowałeś latami.',
     effect: 'Wyobraź sobie: poniedziałek rano, spotkanie zarządu. Ktoś pyta o analizę rynku. Ty mówisz: „Zrobiłem ją z AI w 15 minut". Cisza. I to Ty pokazujesz zespołowi jak to działa. Nie nadganiasz — prowadzisz.',
     socialProof: 'Ten kurs jest dla Ciebie, jeśli masz doświadczenie w zarządzaniu, ale AI to dla Ciebie wciąż wyzwanie.',
   },
@@ -40,9 +40,9 @@ export const SEGMENTS: Segment[] = [
     id: 'specialist',
     icon: Scale,
     name: 'Specjalista branżowy',
-    hook: 'AI nie zastąpi Twojej wiedzy. Zwielokrotni ją.',
+    hook: 'AI nie zastąpi Twojej wiedzy. Wzmocni ją.',
     pain: 'Czytasz, że AI pisze umowy, analizuje dane, stawia wstępne diagnozy. Nie wiesz, czy to zagrożenie czy szansa. I wolisz nie sprawdzać — bo co jeśli okaże się, że robi to lepiej? (Spoiler: nie robi. Ale robi to szybciej.)',
-    effect: 'Twoje 20-30 lat wiedzy branżowej to SILNIK. AI to turbo. Analizujesz dokumenty w ułamku czasu, wyłapujesz rzeczy które przegapiłbyś po 30 stronach, i masz czas na to co naprawdę wymaga Twojej głowy.',
+    effect: 'Twoje wieloletnie doświadczenie branżowe to SILNIK. AI to turbo. Analizujesz dokumenty w ułamku czasu, wyłapujesz rzeczy które przegapiłbyś po 30 stronach, i masz czas na to co naprawdę wymaga Twojej uwagi.',
     socialProof: 'Jeśli jesteś prawnikiem, księgową, lekarzem, inżynierem — Twoja ekspertyza + AI to kombinacja, której "juniorzy" nie mają.',
   },
   {
@@ -51,7 +51,7 @@ export const SEGMENTS: Segment[] = [
     name: 'Handlowiec',
     hook: '20 maili dziennie ręcznie? Jest lepszy sposób.',
     pain: '20 maili dziennie. Oferty po godzinach. Follow-upy które zapominasz wysłać. Spędzasz więcej czasu przy klawiaturze niż z klientami. A to z klientami zarabiasz.',
-    effect: 'AI pisze za Ciebie maile, oferty i follow-upy. Spersonalizowane, w Twoim stylu — nie w stylu robota. Ty skupiasz się na relacjach. Tam, gdzie naprawdę zarabiasz.',
+    effect: 'AI pisze za Ciebie maile, oferty i follow-upy. Spersonalizowane, w Twoim stylu — nie w stylu robota. Ty skupiasz się na relacjach. Tam, gdzie naprawdę jesteś niezastąpiony.',
     socialProof: 'Dla Ciebie, jeśli sprzedajesz i wiesz że czas to pieniądz. Dosłownie.',
   },
   {
@@ -70,25 +70,25 @@ export const COURSE_WEEKS = [
     week: 1,
     title: 'Podstawy — „jak rozmawiać z maszyną"',
     description:
-      'Uczysz się zadawać pytania tak, żeby dostawać dobre odpowiedzi. Koniec z „AI nie działa". Po tym tygodniu rozumiesz DLACZEGO jedni dostają genialne odpowiedzi, a inni bełkot. (Podpowiedź: to zależy od tego, jak pytasz — nie od tego, jakiego narzędzia używasz.)',
+      'Zaczynamy od zera: skąd wziąć narzędzia, jak je ustawić, czego im nie dawać. Uczysz się rozmawiać z AI tak, żeby dostawać to, czego potrzebujesz — nie losowe odpowiedzi. I od pierwszego dnia wiesz, jak robić to bezpiecznie: co AI może widzieć, czego nie powinno, i jak mieć nad tym kontrolę.',
   },
   {
     week: 2,
-    title: 'Praktyka — budujesz swój zestaw narzędzi',
+    title: 'Praktyka — budujesz swój warsztat',
     description:
-      'Budujesz swoją bibliotekę promptów do codziennej pracy. Nie wymyślonych. TWOICH. Maile, raporty, analizy, notatki — testujesz na swoich realnych zadaniach. Co działa — zostawiasz. Co nie — poprawiamy.',
+      'Koniec z kopiowaniem cudzych przykładów. Pracujesz na swoich zadaniach — maile, raporty, analizy, dokumenty — i budujesz narzędzia, które pasują do Twojej pracy. Co działa, zostawiasz. Co nie — poprawiamy razem. Po tym tygodniu masz swój zestaw, z którym zaczynasz prawdziwą pracę z AI.',
   },
   {
     week: 3,
-    title: 'AI w Twojej branży — „to działa u mnie"',
+    title: 'Twoja praca × AI',
     description:
-      'Pracujesz na SWOICH zadaniach z pracy. Mega-prompty, szablony branżowe, realne przypadki. Po tym tygodniu mówisz „ja to naprawdę mogę używać" — bo już używasz.',
+      'Nie pojedyncze zadania, a całe procesy. Budujesz powtarzalne systemy — raz inwestujesz czas, potem korzystasz wielokrotnie. Efekt kuli śnieżnej: rozwiązanie z jednego projektu zaczyna działać w następnych.',
   },
   {
     week: 4,
     title: 'Projekt — dowód że umiesz',
     description:
-      'Automatyzujesz tworzenie dokumentów, planów, analiz — wszystko dopasowane do Twojej pracy. Budujesz prostego agenta, który robi to za Ciebie. Pokazujesz efekt. Sobie i innym.',
+      'Budujesz coś kompletnego — od pomysłu do działającego rozwiązania dopasowanego do Twojej pracy. Pokazujesz efekt sobie i innym. I widzisz, dokąd ta droga prowadzi dalej.',
   },
 ]
 
@@ -96,37 +96,37 @@ export const FAQ_ITEMS = [
   {
     question: 'Czy muszę mieć doświadczenie z AI?',
     answer:
-      'Nie. Zaczynamy od absolutnego zera. Kurs jest dla osób, które nigdy nie korzystały z AI lub spróbowały raz-dwa i nie wiedziały co dalej. Rok temu sam byłem w tym miejscu.',
+      'Nie. Startujemy od podstaw, ale szybko idziemy dalej. Kurs jest również dla osób, które nigdy nie korzystały z AI lub spróbowały raz-dwa i nie wiedziały co dalej. Jakiś czas temu sam byłem w tym miejscu.',
   },
   {
     question: 'Ile czasu tygodniowo muszę poświęcić?',
     answer:
-      'Dwie sesje live w tygodniu (60 min + Q&A każda). Plus krótkie materiały przed sesją i zadanie domowe w Twoim tempie. Łącznie 3-4 godziny tygodniowo. Mniej niż jeden sezon serialu.',
+      'Dwie sesje live w tygodniu (90 min każda). Plus krótkie materiały przed sesją i zadanie domowe w Twoim tempie. Łącznie 4-5 godzin tygodniowo. Mniej niż jeden sezon serialu.',
   },
   {
-    question: 'Czy to kolejny webinar o ChatGPT?',
+    question: 'Czy to kolejny kurs, z którego nic nie wyniosę?',
     answer:
-      'Nie. Nie oglądasz prezentacji i nie robisz notatek, które trafią do szuflady. Budujesz konkretne umiejętności do SWOJEJ pracy. Sesje live to warsztaty — pracujesz na swoich zadaniach, z moją pomocą. Po kursie wychodzisz z umiejętnością pisania promptów, własnym systemem pracy z AI i projektem końcowym.',
+      'Sesje live to warsztaty — pracujesz w swoim środowisku, z moją pomocą na bieżąco. Po sesji masz nagrania i materiały dostępne przez rok. Między sesjami — zamknięta grupa, gdzie dopytasz mnie i innych uczestników. A jeśli potrzebujesz indywidualnej pomocy — masz godzinę konsultacji 1:1 ze mną. Reszta zależy od Ciebie.',
   },
   {
     question: 'Czy potrzebuję płatnych narzędzi?',
     answer:
-      'Nie. Wszystko robimy na darmowych wersjach ChatGPT, Claude i Gemini. Jeśli masz płatne subskrypcje — super, wykorzystamy je. Ale nie są wymagane.',
+      'Na pierwszych dwóch poziomach nie — wszystko robimy na darmowych wersjach. Jeśli chcesz wejść na poziom trzeci, tam potrzebujesz płatnej subskrypcji Claude. Ale to Twoja decyzja i nie musisz jej podejmować od razu.',
   },
   {
     question: 'Co jeśli nie dam rady nadążyć?',
     answer:
-      'Materiały zostają z Tobą na zawsze — wracasz kiedy chcesz. A sesje live mają Q&A właśnie po to, żebyś nie zostawał z pytaniami. Tempo dostosowuję do grupy, nie do wyścigu.',
+      'Materiały i nagrania zostają z Tobą przez rok — wracasz kiedy chcesz. Sesje live mają Q&A właśnie po to, żebyś nie zostawał z pytaniami. A jeśli potrzebujesz dodatkowej pomocy — masz godzinę konsultacji 1:1 ze mną w cenie kursu.',
   },
   {
     question: 'Co jeśli kurs będzie dla mnie za prosty?',
     answer:
-      'Zrób test diagnostyczny — za darmo sprawdzisz swój poziom. Jeśli jesteś na poziomie Czeladnika lub wyżej, powiem Ci szczerze: ten kurs nie jest dla Ciebie. Bez wciskania.',
+      'Zrób test diagnostyczny — za darmo sprawdzisz swój poziom. Jeśli jesteś na poziomie Czeladnika lub wyżej — to faktycznie nie jest dla Ciebie.',
   },
   {
     question: 'Czy to zadziała w mojej branży?',
     answer:
-      'AI to narzędzie uniwersalne — jak Excel. Ale na kursie pracujesz na SWOICH zadaniach z TWOJEJ branży. Nie na generycznych przykładach. Dlatego na kursie są prawnicy, księgowi, handlowcy, lekarze, inżynierowie. Każdy buduje narzędzia pod siebie.',
+      'AI to narzędzie uniwersalne — jak Excel. Dlatego na kursie pracujesz na swoich zadaniach. Są prawnicy, księgowi, handlowcy, lekarze, inżynierowie. Każdy buduje narzędzia pod siebie.',
   },
 ]
 

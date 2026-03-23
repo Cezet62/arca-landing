@@ -140,7 +140,7 @@ export function BeforeAfter() {
             variants={fadeInUp}
             className="text-center mt-10 text-text-light text-lg max-w-xl mx-auto"
           >
-            Tego uczymy na kursie — nie „jak kliknąć w&nbsp;ChatGPT",
+            Tego uczymy na kursie — nie jak wpisać jedno pytanie,
             ale jak zbudować system, który pracuje z&nbsp;Tobą.
           </motion.p>
         </motion.div>

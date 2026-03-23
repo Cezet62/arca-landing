@@ -6,9 +6,9 @@ import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { FRAMEWORK_LEVELS } from '@/lib/constants'
 
 const levelDetails: Record<string, string> = {
-  I: 'Spotykasz się z AI po raz pierwszy. Potrzebujesz jasno wytyczonych zadań, które jesteś w stanie zrozumieć i zrealizować przy pomocy Czeladnika. Wykonując proste zadania wzmacniasz swoją motywację do dalszej nauki i zaczynasz rozumieć reguły, które rządzą komunikacją z AI.',
+  I: 'Spotykasz się z AI po raz pierwszy. Potrzebujesz jasno wytyczonych zadań, które jesteś w stanie zrozumieć i zrealizować przy pomocy Czeladnika. Wykonując proste zadania wzmacniasz swoją motywację do dalszej nauki i zaczynasz rozumieć reguły, które rządzą współpracą z AI.',
   II: 'Radzisz sobie coraz lepiej. Rozumiesz podstawy promptowania i potrafisz samodzielnie rozwiązywać proste zadania. Nadal potrzebujesz pomocy w sytuacjach, które wymagają „spojrzenia z boku". Na tym etapie łatwo o zniechęcenie — przyrost umiejętności nie jest już tak skokowy jak na początku. Dlatego ważne, żeby pomoc była blisko.',
-  III: 'Pierwszy poziom, na którym masz świadomość celu i potrafisz samodzielnie opracowywać sposoby dotarcia do niego z pomocą AI. Budujesz własne systemy pracy, proto-skills i projekty. Pogłębiasz zrozumienie pomagając innym na niższych poziomach. To poziom, na którym najłatwiej się zatrzymać — masz wiedzę, która działa. Żeby iść dalej, potrzebujesz silnej motywacji.',
+  III: 'Pierwszy poziom, na którym masz świadomość celu i potrafisz samodzielnie opracowywać sposoby dotarcia do niego z pomocą AI. Budujesz własne systemy pracy, umiejętności (skills) i projekty. Pogłębiasz zrozumienie dzieląc się doświadczeniami z innymi na tej samej drodze. To poziom, na którym najłatwiej się zatrzymać — masz wiedzę, która działa. Żeby iść dalej, potrzebujesz silnej motywacji.',
   IV: 'Na tym poziomie nie wystarczy powtarzanie prostych zadań. Automatyzujesz procesy, budujesz agentów, integrujesz AI z innymi narzędziami. Zaczynasz dostrzegać z całą mocą, ile jeszcze nie wiesz w tej dziedzinie. To poziom największego wysiłku intelektualnego.',
   V: 'Masz kompletną wiedzę z dziedziny AI w swoim obszarze. Nawet jeśli czegoś nie wiesz, potrafisz wskazać gdzie to znaleźć. Bawisz się swoimi zdolnościami — łączysz AI z wiedzą branżową w sposób nowatorski, tworząc rozwiązania, które zaskakują nawet Ciebie.',
 }
@@ -38,7 +38,6 @@ export function Framework() {
           >
             5 poziomów. Ten kurs prowadzi od Studenta i Praktykanta DO Czeladnika. Innymi słowy:
             od „nie wiem co to prompt" do „samodzielnie pracuję z AI na co dzień".
-            Jeśli jesteś już czeladnikiem — zrób test, prawdopodobnie kurs będzie za podstawowy.
           </motion.p>
 
           <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-0">
@@ -131,6 +130,13 @@ export function Framework() {
                 <div className="mt-5 bg-accent/10 rounded-xl px-4 py-3">
                   <p className="text-sm text-accent-dark font-medium">
                     Ten poziom jest częścią kursu ARCA
+                  </p>
+                </div>
+              )}
+              {activeLevel === 'III' && (
+                <div className="mt-5 bg-accent/10 rounded-xl px-4 py-3">
+                  <p className="text-sm text-accent-dark font-medium">
+                    Cel kursu ARCA. Chętni wchodzą na ten poziom razem z prowadzącym.
                   </p>
                 </div>
               )}

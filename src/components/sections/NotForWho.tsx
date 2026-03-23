@@ -21,7 +21,7 @@ const exclusions: Exclusion[] = [
     icon: Rocket,
     headline: 'Już pracujesz z AI i masz swoje metody',
     detail:
-      'Jeśli codziennie korzystasz z AI w pracy i masz wypracowane workflow — ten kurs będzie za prosty. Zrób test diagnostyczny. Powiem Ci szczerze, czy jest sens.',
+      'Jeśli codziennie korzystasz z AI w pracy i masz wypracowane workflow — ten kurs będzie za prosty. Zrób test diagnostyczny. I sam zobaczysz, czy ma to sens (a pewnie nie ma).',
   },
   {
     icon: CalendarX2,
@@ -93,7 +93,7 @@ export function NotForWho() {
             className="text-center mt-10 text-text leading-relaxed text-lg max-w-xl mx-auto"
           >
             Jeśli żaden z&nbsp;tych punktów to nie Ty — czytaj dalej.
-            Ten kurs jest właśnie dla Ciebie.
+            Ten kurs jest najprawdopodobniej dla Ciebie.
           </motion.p>
         </motion.div>
       </Container>

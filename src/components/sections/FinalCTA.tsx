@@ -20,21 +20,21 @@ export function FinalCTA() {
             variants={fadeInUp}
             className="font-heading text-3xl md:text-4xl mb-5"
           >
-            Jeden krok. Pięć minut.
+            Jeden krok. Dwie minuty.
           </motion.h2>
 
           <motion.p
             variants={fadeInUp}
             className="text-lg md:text-xl text-text-light mb-4 leading-relaxed"
           >
-            Nie musisz się zapisywać. Nie musisz płacić. Nie musisz nic decydować.
+            Nie musisz płacić. Nie musisz nic decydować.
           </motion.p>
 
           <motion.p
             variants={fadeInUp}
             className="text-lg md:text-xl text-text mb-4 leading-relaxed"
           >
-            Zrób test diagnostyczny — za 5 minut wiesz na jakim jesteś poziomie
+            Zrób test diagnostyczny — za 2 minuty wiesz na jakim jesteś poziomie
             i czy ten kurs jest dla Ciebie.
           </motion.p>
 

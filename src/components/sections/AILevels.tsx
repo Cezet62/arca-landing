@@ -28,9 +28,9 @@ const levels = [
     label: 'Terminal + automatyzacja',
     pct: '~1%',
     image: null,
-    alt: 'Claude Code — 4 spersonalizowane maile wygenerowane automatycznie',
+    alt: 'Claude Code — 14 spersonalizowanych maili wygenerowanych automatycznie',
     description:
-      '4 klientów, 4 spersonalizowane maile — każdy dopasowany do historii współpracy, tonu i\u00A0indywidualnego rabatu.',
+      '14 klientów, 14 spersonalizowanych maili o\u00A0podwyżce cen — każdy z\u00A0indywidualnym rabatem, dopasowanym tonem i\u00A0odniesieniem do historii współpracy.',
   },
 ]
 
@@ -46,7 +46,7 @@ function TerminalMockup({ expanded = false }: { expanded?: boolean }) {
       <div className="text-gray-500 mb-0.5">$&nbsp;claude</div>
       <div className={`text-white ${spacing}`}>
         <span className="text-blue-400">&gt;</span> Przeczytaj profile klientów i&nbsp;cennik.
-        Dla każdego wygeneruj maila o&nbsp;podwyżce cen.
+        Dla każdego wygeneruj maila o&nbsp;podwyżce cen z&nbsp;indywidualnym rabatem.
       </div>
 
       {/* Reading files */}
@@ -55,7 +55,12 @@ function TerminalMockup({ expanded = false }: { expanded?: boolean }) {
         <div><span className="text-green-400">✓</span> <span className="text-gray-300">kowalski-transport.md</span></div>
         <div><span className="text-green-400">✓</span> <span className="text-gray-300">nowak-logistics.md</span></div>
         <div><span className="text-green-400">✓</span> <span className="text-gray-300">wisniewska-consulting.md</span></div>
-        <div><span className="text-green-400">✓</span> <span className="text-gray-300">zielinski-dev.md</span></div>
+        {expanded && <>
+          <div><span className="text-green-400">✓</span> <span className="text-gray-300">zielinski-dev.md</span></div>
+          <div><span className="text-green-400">✓</span> <span className="text-gray-300">kaminska-pharma.md</span></div>
+          <div><span className="text-green-400">✓</span> <span className="text-gray-300">borkowski-energy.md</span></div>
+        </>}
+        <div className="text-gray-600">...i {expanded ? '8' : '11'} kolejnych</div>
       </div>
 
       {/* Email preview */}
@@ -64,7 +69,7 @@ function TerminalMockup({ expanded = false }: { expanded?: boolean }) {
         <div className="text-gray-500 text-[9px] uppercase tracking-wider mb-1">mail-kowalski.md</div>
         <div className="text-gray-200">Cześć Marku,</div>
         <div className="text-gray-400">
-          po naszym spotkaniu w&nbsp;Krakowie chciałem dać Ci znać z&nbsp;wyprzedzeniem{expanded && ' — od 1 kwietnia aktualizujemy ceny. Współpracujemy od 2018, chcę zaproponować rabat 10% + 5% za polecenia'}...
+          od 1&nbsp;kwietnia podnosimy ceny{expanded && '. Wiem, że współpracujemy od 2018 i\u00A0chcę to uszanować — dla Ciebie przygotowałem rabat 10% + dodatkowe 5% za polecenia. Twoja podwyżka będzie znacznie niższa niż standardowa'}...
         </div>
       </div>
 
@@ -72,13 +77,18 @@ function TerminalMockup({ expanded = false }: { expanded?: boolean }) {
       <div className={`${spaceY} ${spacing}`}>
         <div><span className="text-green-400">✓</span> <span className="text-gray-300">mail-kowalski.md</span> <span className="text-gray-600">— rabat 15%</span></div>
         <div><span className="text-green-400">✓</span> <span className="text-gray-300">mail-nowak.md</span> <span className="text-gray-600">— ton formalny</span></div>
-        <div><span className="text-green-400">✓</span> <span className="text-gray-300">mail-wisniewska.md</span> <span className="text-gray-600">— projekt PZU</span></div>
+        <div><span className="text-green-400">✓</span> <span className="text-gray-300">mail-wisniewska.md</span> <span className="text-gray-600">— rabat 12%</span></div>
         <div><span className="text-green-400">✓</span> <span className="text-gray-300">mail-zielinski.md</span> <span className="text-gray-600">— rabat 10%</span></div>
+        {expanded && <>
+          <div><span className="text-green-400">✓</span> <span className="text-gray-300">mail-kaminska.md</span> <span className="text-gray-600">— rabat 8%</span></div>
+          <div><span className="text-green-400">✓</span> <span className="text-gray-300">mail-borkowski.md</span> <span className="text-gray-600">— rabat 15%</span></div>
+        </>}
+        <div className="text-gray-600">...i {expanded ? '8' : '10'} kolejnych</div>
       </div>
 
       {/* Done */}
-      <div className="text-green-400 font-semibold">Gotowe — 4 maile w demo/maile/</div>
-      <div className="text-gray-500 mt-1">Wygenerowano w 49 sekund</div>
+      <div className="text-green-400 font-semibold">Gotowe — 14 maili w demo/maile/</div>
+      <div className="mt-1"><span className="text-amber-400 font-semibold">Wygenerowano w 49 sekund</span></div>
     </div>
   )
 }
@@ -190,7 +200,7 @@ export function AILevels() {
               <p className="text-text-inverse text-lg leading-relaxed">
                 Na kursie prowadzę Cię od poziomu 1 do poziomu 2.
                 <br className="hidden md:block" />
-                Najambitniejsi wejdą ze mną na poziom 3 —{' '}
+                Chętni wejdą ze mną na poziom 3 —{' '}
                 <span className="text-accent font-medium">
                   i&nbsp;sami zobaczą, czy chcą iść dalej.
                 </span>

@@ -20,7 +20,7 @@ const reasons = [
     icon: TrendingUp,
     title: 'Tylko 1 na 3 osoby przeszła szkolenie',
     stat: 'World Economic Forum, 2026',
-    text: 'Większość ludzi jeszcze nie umie pracować z AI. To znaczy, że okno jest otwarte — kto wejdzie teraz, buduje przewagę. Kto poczeka rok — będzie nadganiał.',
+    text: 'Większość ludzi jeszcze nie umie pracować z AI. To znaczy, że okno jest otwarte — kto wejdzie teraz, buduje przewagę. Kto poczeka — będzie nadganiał.',
   },
 ]
 
@@ -81,7 +81,7 @@ export function WhyNow() {
             className="text-center mt-10 text-text text-lg max-w-2xl mx-auto leading-relaxed"
           >
             Dane mówią jasno: AI zmienia rynek, zmienia zarobki, zmienia zasady.
-            Większość ludzi jeszcze się nie nauczyła. To jest Twoje okno.
+            Większość ludzi jeszcze się nie zaadaptowała. To jest Twoje okno.
           </motion.p>
         </motion.div>
       </Container>

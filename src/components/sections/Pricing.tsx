@@ -1,18 +1,38 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Check, CalendarDays } from 'lucide-react'
+import { ArrowRight, Check, CalendarDays, Video, Users, UserCheck, BookOpen, Globe, Monitor } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { GOOGLE_SHEET_URL, SPOTS_LEFT } from '@/lib/constants'
+import type { LucideIcon } from 'lucide-react'
 
-const included = [
-  '10 warsztatów live (2 sesje w tygodniu, 60 min + Q&A)',
-  'Pracujesz na swoich zadaniach — nie na generycznych przykładach',
-  'Kończysz z własnym asystentem AI dopasowanym do Twojej pracy',
-  'Mała grupa do 20 osób — nie giniesz w tłumie',
-  'Nagrania wszystkich sesji — wracasz kiedy chcesz',
-  'Materiały i ściągawki do pobrania',
-  'Dostęp do zamkniętej grupy uczestników',
+interface IncludedItem {
+  icon: LucideIcon
+  text: string
+  highlight?: boolean
+}
+
+const included: IncludedItem[] = [
+  { icon: Monitor, text: '8 warsztatów live (2 sesje w tygodniu, 90 min każda)' },
+  { icon: CalendarDays, text: '2 warsztaty weekendowe' },
+  { icon: Video, text: 'Nagrania i materiały dostępne przez rok na platformie Skool' },
+  { icon: Check, text: 'Wszystko robisz w swoim środowisku — Twoje maile, Twoje raporty, Twoje dokumenty' },
+  { icon: Users, text: 'Mała grupa do 20 osób' },
+  { icon: UserCheck, text: 'Godzina konsultacji 1:1 z prowadzącym' },
+  { icon: ArrowRight, text: 'Kończysz szkolenie z automatyzacją dopasowaną do Twojej pracy, własną stroną WWW i systemem zarządzania wiedzą', highlight: true },
+]
+
+const weekendWorkshops = [
+  {
+    icon: BookOpen,
+    title: 'NotebookLM',
+    description: 'Narzędzie, które zamienia Twoje dokumenty w podcasty, prezentacje, mapy myśli i streszczenia.',
+  },
+  {
+    icon: Globe,
+    title: 'Budowanie stron z AI',
+    description: 'Twoja strona, Twój pomysł, Ty decydujesz co na niej jest. Od zera do działającej strony w internecie.',
+  },
 ]
 
 export function Pricing() {
@@ -56,30 +76,61 @@ export function Pricing() {
         >
           <motion.h2
             variants={fadeInUp}
-            className="font-heading text-3xl md:text-4xl text-center mb-4"
+            className="font-heading text-3xl md:text-4xl text-center mb-14"
           >
             Co dostajesz na kursie?
           </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            className="text-center text-text-light text-lg mb-12 max-w-2xl mx-auto"
-          >
-            Konkretne umiejętności, nie slajdy do zapomnienia.
-          </motion.p>
 
-          {/* What's included */}
-          <motion.div
-            variants={fadeInUp}
-            className="bg-surface rounded-2xl border border-border shadow-sm px-8 py-8 mb-12"
-          >
-            <ul className="space-y-4">
-              {included.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <Check size={20} className="text-accent mt-0.5 shrink-0" />
-                  <span className="text-text leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
+          {/* What's included — grid */}
+          <motion.div variants={fadeInUp} className="mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {included.map((item) => {
+                const Icon = item.icon
+                return (
+                  <div
+                    key={item.text}
+                    className={`flex items-start gap-4 rounded-2xl p-5 border transition-colors ${
+                      item.highlight
+                        ? 'bg-accent/5 border-accent/20 md:col-span-2'
+                        : 'bg-surface border-border'
+                    }`}
+                  >
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                      item.highlight ? 'bg-accent/15' : 'bg-primary/5'
+                    }`}>
+                      <Icon size={20} className={item.highlight ? 'text-accent' : 'text-primary/70'} />
+                    </div>
+                    <span className={`text-text leading-relaxed pt-2 ${item.highlight ? 'font-medium' : ''}`}>
+                      {item.text}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+          </motion.div>
+
+          {/* Weekend workshops — cards */}
+          <motion.div variants={fadeInUp} className="mb-12">
+            <p className="text-xs font-semibold text-accent uppercase tracking-widest mb-5 text-center">
+              Warsztaty weekendowe
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {weekendWorkshops.map((ws) => {
+                const Icon = ws.icon
+                return (
+                  <div
+                    key={ws.title}
+                    className="bg-surface rounded-2xl border border-border p-6 md:p-7"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                      <Icon size={24} className="text-accent" />
+                    </div>
+                    <h4 className="font-heading text-xl text-primary mb-2">{ws.title}</h4>
+                    <p className="text-text-light leading-relaxed">{ws.description}</p>
+                  </div>
+                )
+              })}
+            </div>
           </motion.div>
 
           {/* Meeting signup */}
@@ -96,10 +147,7 @@ export function Pricing() {
               <strong className="text-text-inverse">darmowe spotkanie online</strong>,
               na&nbsp;którym pokażę na żywo, jak wygląda praca z&nbsp;AI w&nbsp;praktyce.
             </p>
-            <p className="text-text-inverse/50 text-base mb-8">
-              Żadnych slajdów. Żadnego bełkotu. Zobaczysz mój ekran i&nbsp;to,
-              co naprawdę robię każdego dnia.
-            </p>
+            <div className="mb-8" />
 
             {status === 'success' ? (
               <div className="bg-accent/10 border border-accent/30 rounded-xl px-6 py-5 max-w-md mx-auto">

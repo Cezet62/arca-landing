@@ -8,13 +8,13 @@ const deliverables = [
     icon: Brain,
     title: 'Umiejętność, nie ściągawka',
     description:
-      'Nie dostajesz listy „10 promptów". Uczysz się JAK pisać prompty sam — do czegokolwiek. Lista się kończy. Umiejętność zostaje na zawsze.',
+      'Nie dostajesz listy gotowych komend do przeklejenia. Uczysz się JAK rozmawiać z AI i uzyskiwać to, czego potrzebujesz — w dowolnej sytuacji. Lista się kończy. Umiejętność zostaje na zawsze.',
   },
   {
     icon: Workflow,
     title: 'Twój system pracy z AI',
     description:
-      'Które narzędzie do czego. Jak zacząć dzień z AI. Jak weryfikować wyniki. Nie kolejny PDF do szuflady — nawyk, który wchodzi w Twoją codzienną pracę.',
+      'Które narzędzie do czego. Jak zacząć dzień z AI. Jak kontrolować to, co dostajesz. System, do którego sam dochodziłem wiele miesięcy — Ty dostajesz go w cztery tygodnie.',
   },
   {
     icon: Target,
@@ -44,7 +44,6 @@ export function WhatYouGet() {
             variants={fadeInUp}
             className="text-center text-text-light text-lg mb-12 max-w-2xl mx-auto"
           >
-            Nie kolejną listę promptów. Nie certyfikat do szuflady.
             Trzy rzeczy, które zostają z Tobą na stałe.
           </motion.p>
 
