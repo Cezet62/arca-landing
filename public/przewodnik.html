@@ -103,6 +103,29 @@
       max-height: 300px;
     }
 
+    /* Quiz */
+    .quiz-answer-btn {
+      transition: all 0.2s ease;
+    }
+    .quiz-answer-btn:hover {
+      border-color: #f59e0b;
+      background: #fef3c7;
+    }
+    .quiz-answer-btn.selected {
+      border-color: #f59e0b;
+      background: #fef3c7;
+    }
+    .quiz-progress-fill {
+      transition: width 0.4s ease;
+    }
+    .quiz-slide-enter {
+      animation: slideIn 0.3s ease-out;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
     @media print {
       .no-print { display: none !important; }
       body { font-size: 11pt; color: #000; }
@@ -125,7 +148,10 @@
   <nav class="no-print fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-white/5">
     <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
       <a href="/przewodnik.html" class="text-accent font-serif text-lg hover:text-accent-dark transition-colors">ARCA</a>
-      <a href="#signup" class="text-sm text-accent hover:text-accent-dark font-medium transition-colors">Zapisz się na spotkanie</a>
+      <div class="flex items-center gap-4">
+        <a href="#quiz" class="text-sm text-txt-inverse/70 hover:text-accent font-medium transition-colors hidden md:block">Quiz AI</a>
+        <a href="#signup" class="text-sm text-accent hover:text-accent-dark font-medium transition-colors">Zapisz się na spotkanie</a>
+      </div>
     </div>
   </nav>
 
@@ -277,11 +303,16 @@
       <!-- MID-PAGE CTA -->
       <div class="no-print mt-14 text-center fade-in">
         <div class="bg-primary/5 rounded-2xl p-8 md:p-10 border border-primary/10">
-          <p class="text-txt text-base md:text-lg mb-4">Podoba Ci się to, co czytasz? Mam jeszcze trzy historie — ale jeśli już teraz chcesz zobaczyć to na żywo:</p>
-          <a href="#signup" class="inline-block bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-3.5 rounded-xl shadow-md transition-all hover:-translate-y-0.5 text-base">
-            Zapisz się na darmowe spotkanie
-          </a>
-          <p class="text-txt-light text-xs mt-3">Albo czytaj dalej — kolejne historie są jeszcze ciekawsze.</p>
+          <p class="text-txt text-base md:text-lg mb-5">Podoba Ci się to, co czytasz? Mam jeszcze trzy historie — ale jeśli już teraz chcesz działać:</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="#signup" class="w-full sm:w-auto bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-7 py-3.5 rounded-xl shadow-md transition-all hover:-translate-y-0.5 text-base text-center">
+              Zapisz się na spotkanie
+            </a>
+            <a href="#quiz" class="w-full sm:w-auto border-2 border-primary/20 hover:border-accent text-primary font-semibold px-7 py-3.5 rounded-xl transition-all hover:-translate-y-0.5 text-base text-center">
+              Sprawdź swój poziom AI
+            </a>
+          </div>
+          <p class="text-txt-light text-xs mt-4">Albo czytaj dalej — kolejne historie są jeszcze ciekawsze.</p>
         </div>
       </div>
 
@@ -420,7 +451,7 @@
           </div>
         </div>
 
-        <p class="text-txt-light text-sm mt-6 italic">Na darmowym spotkaniu pokażę Ci, na którym poziomie jesteś — i jak przejść dalej.</p>
+        <p class="text-txt-light text-sm mt-6 italic">Nie wiesz, na którym jesteś? <a href="#quiz" class="text-primary font-medium underline underline-offset-2 hover:text-accent transition-colors">Zrób krótki quiz</a> — 7 pytań, 2 minuty.</p>
       </div>
 
     </div>
@@ -484,6 +515,84 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- SEKCJA QUIZ -->
+  <section id="quiz" class="bg-primary py-16 md:py-24 no-print">
+    <div class="max-w-2xl mx-auto px-5 sm:px-6 lg:px-8">
+
+      <!-- Quiz intro -->
+      <div id="quiz-intro" class="text-center fade-in">
+        <p class="text-accent text-sm uppercase tracking-wide font-medium mb-3">7 pytań &middot; 2 minuty</p>
+        <h2 class="text-2xl md:text-3xl text-txt-inverse mb-4 font-serif">Sprawdź swój poziom AI</h2>
+        <p class="text-txt-inverse/70 text-base md:text-lg mb-8 leading-relaxed">Na którym z pięciu poziomów ARCA jesteś? Odpowiedz szczerze — nie ma złych odpowiedzi.</p>
+        <button onclick="startQuiz()" class="bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 text-lg">
+          Zaczynam quiz
+        </button>
+      </div>
+
+      <!-- Quiz questions -->
+      <div id="quiz-container" class="hidden">
+        <!-- Progress bar -->
+        <div class="mb-8">
+          <div class="flex justify-between text-txt-inverse/50 text-sm mb-2">
+            <span>Pytanie <span id="quiz-current">1</span> z 7</span>
+            <span id="quiz-percent">0%</span>
+          </div>
+          <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+            <div id="quiz-progress" class="quiz-progress-fill h-full bg-accent rounded-full" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Question -->
+        <div id="quiz-question" class="quiz-slide-enter">
+          <h3 id="quiz-scenario" class="text-lg md:text-xl text-txt-inverse font-medium mb-6 leading-relaxed"></h3>
+          <div id="quiz-answers" class="space-y-3"></div>
+        </div>
+      </div>
+
+      <!-- Quiz form (after questions) -->
+      <div id="quiz-form-section" class="hidden">
+        <div class="text-center mb-8">
+          <div class="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl md:text-2xl text-txt-inverse font-serif mb-2">Gotowe!</h3>
+          <p class="text-txt-inverse/70">Podaj imię i email, żeby zobaczyć swój wynik i&nbsp;poziom ARCA.</p>
+        </div>
+        <form id="quiz-form" class="max-w-md mx-auto space-y-4">
+          <input type="text" id="quiz-name" required placeholder="Twoje imię"
+            class="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-txt-inverse placeholder:text-txt-inverse/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors">
+          <input type="email" id="quiz-email" required placeholder="Twój email"
+            class="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-txt-inverse placeholder:text-txt-inverse/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" id="quiz-consent" required class="mt-1 w-4 h-4 accent-[#D4A853]">
+            <span class="text-txt-inverse/60 text-sm leading-relaxed text-left">
+              Wyrażam zgodę na kontakt mailowy w&nbsp;sprawie kursu ARCA.
+              <button type="button" onclick="document.getElementById('privacy-policy').classList.remove('hidden'); document.getElementById('privacy-policy').scrollIntoView({behavior:'smooth'})" class="underline underline-offset-2 hover:text-accent transition-colors">Polityka prywatności</button>
+            </span>
+          </label>
+          <button type="submit" id="quiz-submit-btn"
+            class="w-full bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-6 py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 text-lg">
+            Pokaż mój wynik
+          </button>
+        </form>
+      </div>
+
+      <!-- Quiz result -->
+      <div id="quiz-result" class="hidden text-center">
+        <div class="bg-white/10 rounded-2xl border border-white/15 p-6 md:p-10 mb-6">
+          <p class="text-txt-inverse/50 text-sm uppercase tracking-wide mb-2">Twój wynik</p>
+          <p class="text-4xl md:text-5xl font-bold text-accent mb-2"><span id="quiz-score">0</span>/21</p>
+          <div id="quiz-level-badge" class="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            Poziom <span id="quiz-level-num"></span>: <span id="quiz-level-name"></span>
+          </div>
+          <p id="quiz-level-desc" class="text-txt-inverse/80 text-base md:text-lg leading-relaxed"></p>
+        </div>
+        <div id="quiz-result-cta"></div>
+      </div>
+
     </div>
   </section>
 
@@ -660,6 +769,168 @@
     }
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeCert();
+    });
+
+    // ——— QUIZ ———
+    const QUIZ_QUESTIONS = [
+      { id: 1, scenario: 'Jak często używasz narzędzi AI (ChatGPT, Claude, Gemini)?', answers: [
+        { text: 'Nie używam; próbowałem kilka razy', points: 0 },
+        { text: 'Kilka razy w miesiącu, jak mi się przypomni', points: 1 },
+        { text: 'Kilka razy w tygodniu, mam swoje zastosowania', points: 2 },
+        { text: 'Codziennie — to część mojego sposobu pracy', points: 3 },
+      ]},
+      { id: 2, scenario: 'Jak wyglądają Twoje typowe polecenia do AI?', answers: [
+        { text: 'Krótkie pytania, jak w Google: „jak napisać mail do klienta"', points: 0 },
+        { text: 'Kilka zdań z opisem sytuacji', points: 1 },
+        { text: 'Podaję kontekst, cel, ton, format — strukturyzuję polecenie', points: 2 },
+        { text: 'Używam technik: role, przykłady, ograniczenia', points: 3 },
+      ]},
+      { id: 3, scenario: 'Czy wgrywałeś plik (PDF, Word, zdjęcie) do AI, żeby go przeanalizować?', answers: [
+        { text: 'Nie, nie wiedziałem że to możliwe', points: 0 },
+        { text: 'Słyszałem o tym, ale nie próbowałem', points: 1 },
+        { text: 'Tak, zdarzyło mi się kilka razy', points: 2 },
+        { text: 'Tak, regularnie pracuję z AI na swoich dokumentach', points: 3 },
+      ]},
+      { id: 4, scenario: 'Czy masz skonfigurowane „instrukcje użytkownika" lub „pamięć" w jakimkolwiek narzędziu AI?', answers: [
+        { text: 'Nie wiem co to jest', points: 0 },
+        { text: 'Widziałem tę opcję, ale nie ustawiałem', points: 1 },
+        { text: 'Tak, mam ustawione podstawowe informacje o sobie', points: 2 },
+        { text: 'Tak, i aktywnie je aktualizuję pod różne zastosowania', points: 3 },
+      ]},
+      { id: 5, scenario: 'Czy korzystałeś z „Projektów" w Claude, ChatGPT, lub podobnych funkcji dających AI stały kontekst Twojej pracy?', answers: [
+        { text: 'Nie wiem co to jest', points: 0 },
+        { text: 'Widziałem, ale nie korzystałem', points: 1 },
+        { text: 'Próbowałem stworzyć projekt, ale nie korzystam regularnie', points: 2 },
+        { text: 'Mam aktywne projekty, których używam regularnie', points: 3 },
+      ]},
+      { id: 6, scenario: 'Z ilu narzędzi AI faktycznie korzystałeś (nie tylko słyszałeś o nich)?', answers: [
+        { text: 'Żadnego; jednego (np. tylko ChatGPT)', points: 0 },
+        { text: 'Dwóch (np. ChatGPT + Claude lub Gemini)', points: 1 },
+        { text: 'Trzech-czterech, do różnych rzeczy', points: 2 },
+        { text: 'Pięciu lub więcej — dobieram narzędzie do zadania', points: 3 },
+      ]},
+      { id: 7, scenario: 'Czy kiedykolwiek użyłeś AI przez terminal, API lub narzędzie automatyzacji (np. Claude Code, Zapier, Make, n8n)?', answers: [
+        { text: 'Nie wiem co to jest', points: 0 },
+        { text: 'Słyszałem, ale nie próbowałem', points: 1 },
+        { text: 'Próbowałem kilka razy, ale to jest zbyt trudne', points: 2 },
+        { text: 'Używam regularnie — to część mojej pracy', points: 3 },
+      ]},
+    ];
+
+    const QUIZ_LEVELS = {
+      student: { level: 'I', name: 'Student', description: 'Jesteś na początku drogi z AI — i to jest dokładnie właściwe miejsce, żeby zacząć. Masz coś, czego żaden kurs AI nie nauczy: lata doświadczenia w swojej dziedzinie. Brakuje Ci jednego narzędzia, żeby to doświadczenie zwielokrotnić.', qualifies: true },
+      praktykant: { level: 'II', name: 'Praktykant', description: 'Wiesz że AI istnieje i mogłoby Ci pomóc — to więcej niż większość ludzi. Ale między „wiem że mogę" a „robię to codziennie" jest przepaść. Kurs ARCA pomaga ją przeskoczyć.', qualifies: true },
+      czeladnik: { level: 'III', name: 'Czeladnik', description: 'Masz solidne podstawy — i mówię to szczerze: ten kurs byłby dla Ciebie za prosty. Nie chcę marnować Twojego czasu. Pracuję nad kursem zaawansowanym — automatyzacja, Claude Code, budowanie systemów.', qualifies: false },
+    };
+
+    let quizCurrentQ = 0;
+    let quizAnswers = [];
+    const letters = ['A', 'B', 'C', 'D'];
+
+    function startQuiz() {
+      document.getElementById('quiz-intro').classList.add('hidden');
+      document.getElementById('quiz-container').classList.remove('hidden');
+      showQuestion(0);
+    }
+
+    function showQuestion(idx) {
+      quizCurrentQ = idx;
+      const q = QUIZ_QUESTIONS[idx];
+      const pct = Math.round((idx / QUIZ_QUESTIONS.length) * 100);
+
+      document.getElementById('quiz-current').textContent = idx + 1;
+      document.getElementById('quiz-percent').textContent = pct + '%';
+      document.getElementById('quiz-progress').style.width = pct + '%';
+
+      document.getElementById('quiz-scenario').textContent = q.scenario;
+
+      const answersDiv = document.getElementById('quiz-answers');
+      answersDiv.innerHTML = '';
+      q.answers.forEach((a, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-answer-btn w-full text-left px-4 py-3.5 rounded-xl border border-white/20 bg-white/5 text-txt-inverse flex items-start gap-3 cursor-pointer';
+        btn.innerHTML = '<span class="shrink-0 w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-sm font-semibold text-accent">' + letters[i] + '</span><span class="pt-0.5">' + a.text + '</span>';
+        btn.onclick = () => selectAnswer(btn, a.points);
+        answersDiv.appendChild(btn);
+      });
+
+      // Re-trigger animation
+      const questionDiv = document.getElementById('quiz-question');
+      questionDiv.classList.remove('quiz-slide-enter');
+      void questionDiv.offsetWidth;
+      questionDiv.classList.add('quiz-slide-enter');
+    }
+
+    function selectAnswer(btn, points) {
+      // Visual feedback
+      btn.classList.add('selected');
+      quizAnswers.push(points);
+
+      setTimeout(() => {
+        if (quizCurrentQ < QUIZ_QUESTIONS.length - 1) {
+          showQuestion(quizCurrentQ + 1);
+        } else {
+          // All done — show form
+          document.getElementById('quiz-progress').style.width = '100%';
+          document.getElementById('quiz-percent').textContent = '100%';
+          document.getElementById('quiz-container').classList.add('hidden');
+          document.getElementById('quiz-form-section').classList.remove('hidden');
+        }
+      }, 350);
+    }
+
+    function getQuizLevel(score) {
+      if (score <= 7) return QUIZ_LEVELS.student;
+      if (score <= 15) return QUIZ_LEVELS.praktykant;
+      return QUIZ_LEVELS.czeladnik;
+    }
+
+    function showQuizResult(score) {
+      const level = getQuizLevel(score);
+
+      document.getElementById('quiz-form-section').classList.add('hidden');
+      document.getElementById('quiz-result').classList.remove('hidden');
+      document.getElementById('quiz-score').textContent = score;
+      document.getElementById('quiz-level-num').textContent = level.level;
+      document.getElementById('quiz-level-name').textContent = level.name;
+      document.getElementById('quiz-level-desc').textContent = level.description;
+
+      const ctaDiv = document.getElementById('quiz-result-cta');
+      if (level.qualifies) {
+        ctaDiv.innerHTML = '<a href="#signup" class="inline-block bg-accent hover:bg-accent-dark text-primary-dark font-semibold px-8 py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 text-lg">Zapisz się na darmowe spotkanie</a><p class="text-txt-inverse/50 text-sm mt-4">14 kwietnia &middot; Zoom &middot; 40 minut</p>';
+      } else {
+        ctaDiv.innerHTML = '<a href="mailto:ziarkowskicezary@gmail.com?subject=Kurs zaawansowany ARCA" class="inline-block bg-white/15 hover:bg-white/25 text-txt-inverse font-semibold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 text-lg">Daj znać gdy kurs zaawansowany będzie gotowy</a>';
+      }
+    }
+
+    // Quiz form submission
+    document.getElementById('quiz-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('quiz-submit-btn');
+      const name = document.getElementById('quiz-name').value.trim();
+      const email = document.getElementById('quiz-email').value.trim();
+      const score = quizAnswers.reduce((a, b) => a + b, 0);
+      const level = getQuizLevel(score);
+
+      btn.disabled = true;
+      btn.textContent = 'Sprawdzam...';
+
+      try {
+        await fetch(SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({
+            name,
+            email,
+            poziom: level.level + ' — ' + level.name,
+            wynik: score + '/21',
+            kwalifikuje_sie: level.qualifies ? 'Tak' : 'Nie',
+          }),
+        });
+      } catch {}
+
+      showQuizResult(score);
     });
 
     // Form submission → Google Apps Script
