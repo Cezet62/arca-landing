@@ -22,7 +22,7 @@ export const SEGMENTS: Segment[] = [
     id: 'manager',
     icon: Building2,
     name: 'Menedżer / Prezes',
-    hook: 'Młodsi już to robią. Ty jeszcze nie.',
+    hook: 'Inni już to robią. Ty jeszcze nie.',
     pain: 'Na spotkaniach padają skróty, których nie znasz. Inni w firmie już używają AI — a Ty udajesz, że to nie Twój temat. I czujesz, że z każdym tygodniem tracisz kawałek autorytetu, który budowałeś latami.',
     effect: 'Wyobraź sobie: poniedziałek rano, spotkanie zarządu. Ktoś pyta o analizę rynku. Ty mówisz: „Zrobiłem ją z AI w 15 minut". Cisza. I to Ty pokazujesz zespołowi jak to działa. Nie nadganiasz — prowadzisz.',
     socialProof: 'Ten kurs jest dla Ciebie, jeśli masz doświadczenie w zarządzaniu, ale AI to dla Ciebie wciąż wyzwanie.',
@@ -249,7 +249,7 @@ export const QUIZ_RESULTS: Record<string, QuizResult> = {
     level: 'I',
     name: 'Student',
     description:
-      'Jesteś na początku drogi z AI — i to jest dokładnie właściwe miejsce, żeby zacząć. Masz coś, czego żaden kurs AI nie nauczy: lata doświadczenia w swojej dziedzinie. Brakuje Ci jednego narzędzia, żeby to doświadczenie zwielokrotnić.',
+      'Jesteś na początku drogi z AI — i to jest dokładnie właściwe miejsce, żeby zacząć. Masz coś, czego żaden kurs AI nie da: Twoją wiedzę, Twój sposób myślenia, Twoją ciekawość. AI to narzędzie, które wzmocni to, kim już jesteś.',
     qualifies: true,
     ctaText: 'Zapisz się na darmowe spotkanie',
   },
