@@ -21,10 +21,10 @@ export function Hero() {
           >
             <motion.div variants={slideInLeft} className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-medium mb-5">
               <Clock size={16} />
-              <span>4 tygodnie live</span>
+              <span>Kurs AI dla Przedsiębiorczych</span>
               <span className="mx-1 text-accent/40">|</span>
               <Users size={16} />
-              <span>Małe grupy warsztatowe</span>
+              <span>Małe grupy do 20 osób</span>
             </motion.div>
 
             <motion.h1
@@ -41,7 +41,7 @@ export function Hero() {
               variants={slideInLeft}
               className="text-lg md:text-xl text-text-inverse/70 mb-6 max-w-xl leading-relaxed"
             >
-              Naucz się zwiększać swoje możliwości z&nbsp;AI.
+              Naucz się pracować z&nbsp;AI powtarzalnie i&nbsp;pod kontrolą.
               4&nbsp;tygodnie. Prostym językiem. Krok po kroku.
             </motion.p>
 
@@ -63,15 +63,15 @@ export function Hero() {
               <ul className="space-y-1.5 text-sm md:text-base text-text-inverse/60 text-left">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-0.5 shrink-0">✓</span>
-                  Pracujesz na swoich zadaniach — nie na generycznych przykładach
+                  Pracujesz nad tym, co naprawdę robisz na co dzień
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-0.5 shrink-0">✓</span>
-                  10 warsztatów live — bez żargonu i&nbsp;slajdów
+                  10 sesji na żywo — ćwiczysz, pytasz, budujesz
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-0.5 shrink-0">✓</span>
-                  Kończysz z własnym asystentem AI — dopasowanym do Twojej pracy
+                  Tworzysz własnego asystenta AI — dopasowanego do Twoich zadań
                 </li>
               </ul>
             </motion.div>
