@@ -26,6 +26,23 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1270995841671872');
   fbq('track', 'PageView');
+
+  // Scroll depth tracking — 25%, 50%, 75%, 100%
+  (function() {
+    var fired = {};
+    var thresholds = [25, 50, 75, 100];
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      if (h <= 0) return;
+      var pct = Math.round((window.scrollY / h) * 100);
+      thresholds.forEach(function(t) {
+        if (pct >= t && !fired[t]) {
+          fired[t] = true;
+          fbq('trackCustom', 'ScrollDepth', { percent: t });
+        }
+      });
+    });
+  })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1270995841671872&ev=PageView&noscript=1"
@@ -829,6 +846,7 @@
     const letters = ['A', 'B', 'C', 'D'];
 
     function startQuiz() {
+      fbq('trackCustom', 'QuizStart');
       document.getElementById('quiz-intro').classList.add('hidden');
       document.getElementById('quiz-container').classList.remove('hidden');
       showQuestion(0);
@@ -931,6 +949,11 @@
         });
       } catch {}
 
+      fbq('track', 'CompleteRegistration', {
+        content_name: 'Quiz',
+        value: score,
+        currency: 'PLN'
+      });
       showQuizResult(score);
     });
 
@@ -959,6 +982,7 @@
             kwalifikuje_sie: 'Tak',
           }),
         });
+        fbq('track', 'Lead', { content_name: 'Spotkanie' });
         this.classList.add('hidden');
         document.getElementById('signup-success').classList.remove('hidden');
       } catch {
