@@ -27,7 +27,9 @@
   fbq('init', '1270995841671872');
   fbq('track', 'PageView');
 
-  // Scroll depth tracking — 25%, 50%, 75%, 100%
+  // --- ARCA Pixel Tracking Suite ---
+
+  // 1. Scroll depth tracking — 25%, 50%, 75%, 100%
   (function() {
     var fired = {};
     var thresholds = [25, 50, 75, 100];
@@ -42,6 +44,38 @@
         }
       });
     });
+  })();
+
+  // 2. Time on page — 30s, 60s, 120s, 300s
+  (function() {
+    var milestones = [30, 60, 120, 300];
+    milestones.forEach(function(sec) {
+      setTimeout(function() {
+        fbq('trackCustom', 'TimeOnPage', { seconds: sec });
+      }, sec * 1000);
+    });
+  })();
+
+  // 3. CTA button clicks — tracks any click on links/buttons with href containing #signup or #spotkanie
+  document.addEventListener('click', function(e) {
+    var el = e.target.closest('a[href*="signup"], a[href*="spotkanie"], a[href*="zapisy"]');
+    if (el) {
+      fbq('trackCustom', 'CTAClick', { label: el.textContent.trim().substring(0, 50) });
+    }
+  });
+
+  // 4. Form interaction — user starts filling the signup form
+  (function() {
+    var formStarted = false;
+    var form = document.getElementById('signup-form');
+    if (form) {
+      form.addEventListener('focusin', function() {
+        if (!formStarted) {
+          formStarted = true;
+          fbq('trackCustom', 'FormStart', { form: 'signup-spotkanie' });
+        }
+      });
+    }
   })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
