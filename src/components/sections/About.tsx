@@ -42,7 +42,7 @@ export function About() {
             variants={fadeInUp}
             className="font-heading text-3xl md:text-4xl text-center mb-14"
           >
-            Prowadzący — Cezary Ziarkowski
+            Prowadzący — <a href="https://www.ziarkowskicezary.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition-colors">Cezary Ziarkowski</a>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-start">
