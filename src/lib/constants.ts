@@ -251,7 +251,7 @@ export const QUIZ_RESULTS: Record<string, QuizResult> = {
     description:
       'Jesteś na początku drogi z AI — i to jest dokładnie właściwe miejsce, żeby zacząć. Masz coś, czego żaden kurs AI nie da: Twoją wiedzę, Twój sposób myślenia, Twoją ciekawość. AI to narzędzie, które wzmocni to, kim już jesteś.',
     qualifies: true,
-    ctaText: 'Zapisz się na darmowe spotkanie',
+    ctaText: 'Zapisz się na listę oczekujących',
   },
   praktykant: {
     key: 'praktykant',
@@ -260,7 +260,7 @@ export const QUIZ_RESULTS: Record<string, QuizResult> = {
     description:
       'Wiesz że AI istnieje i mogłoby Ci pomóc — to więcej niż większość ludzi. Ale między „wiem że mogę" a „robię to codziennie" jest przepaść. Kurs ARCA pomaga ją przeskoczyć.',
     qualifies: true,
-    ctaText: 'Zapisz się na darmowe spotkanie',
+    ctaText: 'Zapisz się na listę oczekujących',
   },
   czeladnik: {
     key: 'czeladnik',

@@ -64,7 +64,7 @@ export function FinalCTA() {
             variants={fadeInUp}
             className="mt-3 text-sm font-medium text-accent"
           >
-            Pierwsza edycja kursu: kwiecień 2026
+            II edycja: czerwiec/lipiec 2026
           </motion.p>
         </motion.div>
       </Container>

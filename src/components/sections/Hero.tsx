@@ -3,7 +3,7 @@ import { ArrowRight, Clock, Users } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { Button } from '@/components/ui/Button'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
-import { CTA_URL, SPOTS_LEFT } from '@/lib/constants'
+import { CTA_URL } from '@/lib/constants'
 
 export function Hero() {
   return (
@@ -80,7 +80,7 @@ export function Hero() {
               variants={fadeInUp}
               className="mt-5 text-base md:text-lg font-medium text-text-inverse/70"
             >
-              Zostało <span className="text-accent font-bold">{SPOTS_LEFT}</span> miejsc · kwiecień 2026
+              <span className="text-accent font-bold">II edycja</span> · czerwiec/lipiec 2026
             </motion.p>
           </motion.div>
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Check, CalendarDays, Video, Users, UserCheck, BookOpen, Globe, Monitor } from 'lucide-react'
 import { Container } from '@/components/ui/Container'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
-import { GOOGLE_SHEET_URL, SPOTS_LEFT } from '@/lib/constants'
+import { GOOGLE_SHEET_URL } from '@/lib/constants'
 import type { LucideIcon } from 'lucide-react'
 
 interface IncludedItem {
@@ -53,8 +53,8 @@ export function Pricing() {
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
-          poziom: 'Spotkanie',
-          wynik: 'Zapis na spotkanie',
+          poziom: 'Lista oczekujących II edycja',
+          wynik: 'Zapis na listę oczekujących',
           kwalifikuje_sie: 'Tak',
         }),
       })
@@ -140,20 +140,20 @@ export function Pricing() {
           >
             <CalendarDays size={32} className="text-accent mx-auto mb-4" />
             <h3 className="font-heading text-2xl md:text-3xl text-text-inverse mb-3">
-              Chcesz zobaczyć, jak to działa?
+              Zapisz się na listę oczekujących — <span className="text-accent">II edycja</span>
             </h3>
             <p className="text-text-inverse/70 text-lg leading-relaxed max-w-xl mx-auto mb-2">
-              Zapraszam Cię na{' '}
-              <strong className="text-text-inverse">darmowe spotkanie online</strong>,
-              na&nbsp;którym pokażę na żywo, jak wygląda praca z&nbsp;AI w&nbsp;praktyce.
+              Zapisy na pierwszą edycję są zamknięte. Drugą planuję na{' '}
+              <strong className="text-text-inverse">termin wakacyjny — końcówkę czerwca albo początek lipca 2026</strong>.
+              Zostaw email, a dostaniesz info jako pierwszy, zanim pójdzie w świat. Plus specjalna cena dla osób z listy.
             </p>
             <div className="mb-8" />
 
             {status === 'success' ? (
               <div className="bg-accent/10 border border-accent/30 rounded-xl px-6 py-5 max-w-md mx-auto">
-                <p className="text-text-inverse font-semibold text-lg mb-1">Gotowe!</p>
+                <p className="text-text-inverse font-semibold text-lg mb-1">Jesteś na liście</p>
                 <p className="text-text-inverse/70 text-sm">
-                  Dziękuję za zapis. Sprawdź swoją skrzynkę — zaproszenie już leci.
+                  Dziękuję za zapis. Dam znać, jak otworzę zapisy na II edycję — przed resztą świata.
                 </p>
               </div>
             ) : (
@@ -195,7 +195,7 @@ export function Pricing() {
                     'Wysyłam...'
                   ) : (
                     <>
-                      Zapisuję się na spotkanie
+                      Zapisuję się na listę oczekujących
                       <ArrowRight size={20} />
                     </>
                   )}
@@ -206,15 +206,13 @@ export function Pricing() {
                   </p>
                 )}
                 <p className="text-text-inverse/40 text-xs">
-                  Twoje dane są bezpieczne. Nie wysyłam spamu. Dostaniesz zaproszenie
-                  na&nbsp;spotkanie i&nbsp;ewentualne informacje o&nbsp;ARCA — nic więcej.
+                  Twoje dane są bezpieczne. Nie wysyłam spamu. Dam znać, jak otworzę zapisy na II edycję.
                 </p>
               </form>
             )}
 
             <p className="mt-6 text-sm text-text-inverse/50">
-              Zostało <span className="text-accent font-semibold">{SPOTS_LEFT}</span> miejsc
-              · pierwsza edycja: kwiecień 2026
+              <span className="text-accent font-semibold">II edycja</span> · czerwiec/lipiec 2026
             </p>
           </motion.div>
         </motion.div>

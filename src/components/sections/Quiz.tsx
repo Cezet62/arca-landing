@@ -94,8 +94,8 @@ export function Quiz({ isOpen, onClose }: QuizProps) {
         body: JSON.stringify({
           name,
           email,
-          poziom: `${result.name} (${result.level})`,
-          wynik: `${score}/21`,
+          poziom: 'Lista oczekujących II edycja',
+          wynik: `Quiz: ${result.name} (${result.level}) - ${score}/21`,
           kwalifikuje_sie: result.qualifies ? 'Tak' : 'Nie',
         }),
       })
@@ -244,7 +244,7 @@ export function Quiz({ isOpen, onClose }: QuizProps) {
                       </h3>
                       <p className="text-text-light">
                         Podaj dane, żeby zobaczyć swój poziom AI
-                        i&nbsp;otrzymać szczegóły spotkania.
+                        i&nbsp;zapisać się na listę oczekujących na II edycję.
                       </p>
                     </div>
 
@@ -362,7 +362,7 @@ export function Quiz({ isOpen, onClose }: QuizProps) {
 
                     <p className="text-sm text-text-light mb-8">
                       {result.qualifies
-                        ? 'Szczegóły spotkania onboardingowego wyślę na podany adres email.'
+                        ? 'Info o II edycji wyślę na podany adres email — zanim pójdzie w świat.'
                         : 'Dam znać na podany adres email, gdy kurs zaawansowany będzie gotowy.'}
                     </p>
 

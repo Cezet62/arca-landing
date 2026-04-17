@@ -71,7 +71,7 @@ export function Privacy({ isOpen, onClose }: PrivacyProps) {
                   </h3>
                   <p>
                     Dane przetwarzane są w celu przesłania informacji o kursie
-                    ARCA, w tym szczegółów spotkania onboardingowego, na
+                    ARCA, w tym szczegółów zapisów na II edycję, na
                     podstawie wyrażonej zgody (art. 6 ust. 1 lit. a RODO).
                   </p>
                 </section>
