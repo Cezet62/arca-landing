@@ -59,6 +59,19 @@ export function Hero() {
               Darmowy test. 7 pytań. 2 minuty.
             </motion.p>
 
+            <motion.p
+              variants={fadeInUp}
+              className="mt-6 text-sm md:text-base text-text-inverse/70"
+            >
+              Albo od razu{' '}
+              <a
+                href="/lista.html"
+                className="text-accent font-semibold underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition"
+              >
+                zapisz się na listę oczekujących II edycji →
+              </a>
+            </motion.p>
+
             <motion.div variants={fadeInUp} className="mt-5 flex justify-center">
               <ul className="space-y-1.5 text-sm md:text-base text-text-inverse/60 text-left">
                 <li className="flex items-start gap-2">

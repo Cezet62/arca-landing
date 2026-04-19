@@ -13,6 +13,7 @@ export function Navbar() {
     { label: 'Program', href: '#program' },
     { label: 'Prowadzący', href: '#prowadzacy' },
     { label: 'FAQ', href: '#faq' },
+    { label: 'Lista oczekujących', href: '/lista.html' },
   ]
 
   return (

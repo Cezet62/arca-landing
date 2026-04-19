@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista oczekujących — II edycja kursu ARCA</title>
+  <meta name="description" content="Zapisz się na listę oczekujących na drugą edycję kursu AI dla Przedsiębiorczych. Termin: końcówka czerwca albo początek lipca 2026.">
+
+  <meta property="og:title" content="Lista oczekujących — II edycja kursu ARCA">
+  <meta property="og:description" content="Zapisy na pierwszą edycję są zamknięte. Zostaw email i dostaniesz info o drugiej edycji jako pierwszy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arcaskool.pl/lista.html">
+  <meta property="og:locale" content="pl_PL">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#1a1a2e', dark: '#0f0f1d' },
+            accent: { DEFAULT: '#f59e0b', dark: '#d97706' },
+            bg: '#f8fafc',
+            surface: '#ffffff',
+            txt: { DEFAULT: '#1e293b', light: '#64748b', inverse: '#ffffff' },
+            border: '#e2e8f0',
+          },
+          fontFamily: {
+            serif: ['DM Serif Display', 'serif'],
+            sans: ['DM Sans', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1, h2 { font-family: 'DM Serif Display', serif; }
+  </style>
+</head>
+<body class="bg-primary text-txt-inverse antialiased min-h-screen flex items-center justify-center px-5 py-12">
+  <main class="max-w-lg w-full">
+    <div class="text-center mb-8">
+      <div class="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-xs font-semibold uppercase tracking-wider mb-6">
+        Kurs AI dla Przedsiębiorczych
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-normal leading-tight mb-5">
+        Zapisz się na listę<br>oczekujących — <span class="text-accent">II edycja</span>
+      </h1>
+
+      <p class="text-txt-inverse/70 leading-relaxed mb-2">
+        Zapisy na pierwszą edycję są zamknięte. Drugą planuję na
+        <strong class="text-txt-inverse">końcówkę czerwca albo początek lipca 2026</strong>.
+      </p>
+      <p class="text-txt-inverse/70 leading-relaxed">
+        Zostaw email — dostaniesz info jako pierwszy, zanim pójdzie w świat.
+        Plus specjalna cena dla osób z listy.
+      </p>
+    </div>
+
+    <div id="form-box" class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8">
+      <form id="waitlist-form" class="space-y-4">
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Twoje imię"
+          class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-txt-inverse placeholder:text-txt-inverse/30 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+        >
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Twój email"
+          class="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-txt-inverse placeholder:text-txt-inverse/30 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
+        >
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            name="consent"
+            required
+            class="mt-1 w-4 h-4 accent-accent"
+          >
+          <span class="text-sm text-txt-inverse/60 leading-relaxed text-left">
+            Wyrażam zgodę na kontakt mailowy w&nbsp;sprawie kursu ARCA
+          </span>
+        </label>
+        <button
+          type="submit"
+          id="submit-btn"
+          class="w-full bg-accent hover:bg-accent-dark text-primary font-semibold px-6 py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+        >
+          Zapisuję się na listę oczekujących →
+        </button>
+        <p id="error-msg" class="text-red-300 text-sm hidden">Coś poszło nie tak. Spróbuj ponownie.</p>
+        <p class="text-txt-inverse/40 text-xs text-center">
+          Twoje dane są bezpieczne. Nie wysyłam spamu.
+        </p>
+      </form>
+    </div>
+
+    <div id="success-box" class="bg-accent/10 border border-accent/30 rounded-2xl px-6 py-8 text-center hidden">
+      <p class="text-txt-inverse font-semibold text-xl mb-2">Jesteś na liście</p>
+      <p class="text-txt-inverse/70">
+        Dziękuję za zapis. Dam znać, jak otworzę zapisy na II edycję — przed resztą świata.
+      </p>
+    </div>
+
+    <p class="mt-8 text-center text-sm text-txt-inverse/50">
+      <a href="/" class="hover:text-txt-inverse transition">← Wróć na stronę główną</a>
+    </p>
+  </main>
+
+  <script>
+    const form = document.getElementById('waitlist-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const errorMsg = document.getElementById('error-msg');
+    const formBox = document.getElementById('form-box');
+    const successBox = document.getElementById('success-box');
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzVls1xTaaFWjmpe8qI8a1z5dsq15aXn5ur2d9vuU4d_Uqn8AKtjjaOBbGjZdDJpuCk/exec';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłam...';
+      errorMsg.classList.add('hidden');
+
+      const formData = new FormData(form);
+      const payload = {
+        name: (formData.get('name') || '').toString().trim(),
+        email: (formData.get('email') || '').toString().trim(),
+        poziom: 'Lista oczekujących II edycja',
+        wynik: 'Zapis na listę oczekujących (lista.html)',
+        kwalifikuje_sie: 'Tak',
+      };
+
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload),
+        });
+        formBox.classList.add('hidden');
+        successBox.classList.remove('hidden');
+      } catch (err) {
+        errorMsg.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Zapisuję się na listę oczekujących →';
+      }
+    });
+  </script>
+</body>
+</html>

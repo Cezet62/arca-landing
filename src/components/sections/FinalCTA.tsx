@@ -62,9 +62,15 @@ export function FinalCTA() {
 
           <motion.p
             variants={fadeInUp}
-            className="mt-3 text-sm font-medium text-accent"
+            className="mt-6 text-base text-text"
           >
-            II edycja: czerwiec/lipiec 2026
+            Albo od razu{' '}
+            <a
+              href="/lista.html"
+              className="text-accent font-semibold underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition"
+            >
+              zapisz się na listę oczekujących II edycji →
+            </a>
           </motion.p>
         </motion.div>
       </Container>
